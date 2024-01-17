@@ -18,7 +18,7 @@ jobs:
     - name: build
       run: DEV_MODE=ON make release -j3
     - name: test qml
-      run: build/release/bin/lunexa-wallet-gui.app/Contents/MacOS/lunexa-wallet-gui --test-qml
+      run: build/release/bin/lxagui.app/Contents/MacOS/lxagui --test-qml
 
   build-ubuntu:
     runs-on: ubuntu-latest
@@ -42,7 +42,7 @@ jobs:
     - name: build
       run: DEV_MODE=ON make release -j3
     - name: test qml
-      run: xvfb-run -a build/release/bin/lunexa-wallet-gui --test-qml
+      run: xvfb-run -a build/release/bin/lxagui --test-qml
 
   build-windows:
     runs-on: windows-latest
@@ -63,7 +63,7 @@ jobs:
       run: make deploy
       working-directory: build/release
     - name: test qml
-      run: build/release/bin/lunexa-wallet-gui --test-qml
+      run: build/release/bin/lxagui --test-qml
 
   macos-bundle:
     runs-on: macOS-latest
@@ -87,14 +87,14 @@ jobs:
       run: make deploy
       working-directory: build
     - name: test qml
-      run: build/bin/lunexa-wallet-gui.app/Contents/MacOS/lunexa-wallet-gui --test-qml
+      run: build/bin/lxagui.app/Contents/MacOS/lxagui --test-qml
     - name: create .tar
-      run: tar -cf lunexa-wallet-gui.tar lunexa-wallet-gui.app
+      run: tar -cf lxagui.tar lxagui.app
       working-directory: build/bin
     - uses: actions/upload-artifact@v2
       with:
         name: ${{ github.job }}
-        path: build/bin/lunexa-wallet-gui.tar
+        path: build/bin/lxagui.tar
 
   docker-linux-static:
     runs-on: ubuntu-20.04
@@ -118,15 +118,15 @@ jobs:
     - name: build
       run: docker run --rm -v /home/runner/work/lxagui/lxagui:/lxagui -w /lxagui lunexa:build-env-linux sh -c 'make release-static -j3'
     - name: sha256sum
-      run: shasum -a256 /home/runner/work/lxagui/lxagui/build/release/bin/lunexa-wallet-gui
+      run: shasum -a256 /home/runner/work/lxagui/lxagui/build/release/bin/lxagui
     - name: test qml
-      run: xvfb-run -a /home/runner/work/lxagui/lxagui/build/release/bin/lunexa-wallet-gui --test-qml
+      run: xvfb-run -a /home/runner/work/lxagui/lxagui/build/release/bin/lxagui --test-qml
     - uses: actions/upload-artifact@v2
       with:
         name: ${{ github.job }}
         path: |
-          /home/runner/work/lxagui/lxagui/build/release/bin/lunexa-wallet-gui
-          /home/runner/work/lxagui/lxagui/build/release/bin/monerod
+          /home/runner/work/lxagui/lxagui/build/release/bin/lxagui
+          /home/runner/work/lxagui/lxagui/build/release/bin/lunexad
 
   docker-windows-static:
     runs-on: ubuntu-20.04
@@ -148,13 +148,13 @@ jobs:
     - name: build
       run: docker run --rm -v /home/runner/work/lxagui/lxagui:/lxagui -w /lxagui lunexa:build-env-windows sh -c 'make depends root=/depends target=x86_64-w64-mingw32 tag=win-x64 -j3'
     - name: sha256sum
-      run: shasum -a256 /home/runner/work/lxagui/lxagui/build/x86_64-w64-mingw32/release/bin/lunexa-wallet-gui.exe
+      run: shasum -a256 /home/runner/work/lxagui/lxagui/build/x86_64-w64-mingw32/release/bin/lxagui.exe
     - uses: actions/upload-artifact@v2
       with:
         name: ${{ github.job }}
         path: |
-          /home/runner/work/lxagui/lxagui/build/x86_64-w64-mingw32/release/bin/lunexa-wallet-gui.exe
-          /home/runner/work/lxagui/lxagui/build/x86_64-w64-mingw32/release/bin/monerod.exe
+          /home/runner/work/lxagui/lxagui/build/x86_64-w64-mingw32/release/bin/lxagui.exe
+          /home/runner/work/lxagui/lxagui/build/x86_64-w64-mingw32/release/bin/lunexad.exe
 
   docker-android:
     runs-on: ubuntu-20.04

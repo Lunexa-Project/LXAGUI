@@ -159,11 +159,11 @@ jobs:
       run: |
         echo "Hashes of the ${{ matrix.arch }} binaries:" >> $GITHUB_STEP_SUMMARY
         echo "\`\`\`" >> $GITHUB_STEP_SUMMARY
-        for bin in lunexa-blockchain-ancestry lunexa-blockchain-depth lunexa-blockchain-export lunexa-blockchain-import lunexa-blockchain-mark-spent-outputs lunexa-blockchain-prune lunexa-blockchain-prune-known-spent-data lunexa-blockchain-stats lunexa-blockchain-usage monerod lunexa-gen-ssl-cert lunexa-gen-trusted-multisig lunexa-wallet-cli lunexa-wallet-gui lunexa-wallet-rpc p2pool; do sha256sum $bin; done >> $GITHUB_STEP_SUMMARY
+        for bin in lunexa-blockchain-ancestry lunexa-blockchain-depth lunexa-blockchain-export lunexa-blockchain-import lunexa-blockchain-mark-spent-outputs lunexa-blockchain-prune lunexa-blockchain-prune-known-spent-data lunexa-blockchain-stats lunexa-blockchain-usage lunexad lunexa-gen-ssl-cert lunexa-gen-trusted-multisig lunexa-wallet-cli lxagui lunexa-wallet-rpc p2pool; do sha256sum $bin; done >> $GITHUB_STEP_SUMMARY
         echo "\`\`\`" >> $GITHUB_STEP_SUMMARY
         echo "An example command to check hashes:" >> $GITHUB_STEP_SUMMARY
         echo "\`\`\`" >> $GITHUB_STEP_SUMMARY
-        echo "$ flatpak run --command=sha256sum org.getmonero.Lunexa /app/bin/lunexa-wallet-gui" >> $GITHUB_STEP_SUMMARY
+        echo "$ flatpak run --command=sha256sum org.getmonero.Lunexa /app/bin/lxagui" >> $GITHUB_STEP_SUMMARY
         echo "\`\`\`" >> $GITHUB_STEP_SUMMARY
 
     - name: Publish to Flathub Beta

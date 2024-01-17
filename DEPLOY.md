@@ -8,7 +8,7 @@ Use macOS 10.12 - 10.13 for better backwards compability.
 
 3. `git clone --recursive -b v0.X.Y.Z --depth 1 https://github.com/lunexa-project/lunexa-gui` 
 
-4. Compile `lunexa-wallet-gui.app`
+4. Compile `lxagui.app`
 
 ```
 mkdir build && cd build
@@ -17,7 +17,7 @@ make
 make deploy
 ```
 
-5. Replace the `monerod` binary inside `lunexa-wallet-gui.app/Contents/MacOS/` with one built using deterministic builds / gitian.
+5. Replace the `lunexad` binary inside `lxagui.app/Contents/MacOS/` with one built using deterministic builds / gitian.
 
 ## Codesigning and notarizing
 
@@ -34,13 +34,13 @@ make deploy
 </plist>
 ```
 
-2. `codesign --deep --force --verify --verbose --options runtime --timestamp --entitlements entitlements.plist --sign 'XXXXXXXXXX' lunexa-wallet-gui.app`
+2. `codesign --deep --force --verify --verbose --options runtime --timestamp --entitlements entitlements.plist --sign 'XXXXXXXXXX' lxagui.app`
 
-You can check if this step worked by using `codesign -dvvv lunexa-wallet-gui.app`
+You can check if this step worked by using `codesign -dvvv lxagui.app`
 
-3. `hdiutil create -fs HFS+ -srcfolder lunexa-gui-v0.X.Y.Z -volname lunexa-wallet-gui lunexa-gui-mac-x64-v0.X.Y.Z.dmg`
+3. `hdiutil create -fs HFS+ -srcfolder lunexa-gui-v0.X.Y.Z -volname lxagui lunexa-gui-mac-x64-v0.X.Y.Z.dmg`
 
-4. `xcrun altool -t osx --file lunexa-gui-mac-x64-v0.X.Y.Z.dmg --primary-bundle-id org.lunexa-project.lunexa-wallet-gui.dmg --notarize-app --username email@address.org`
+4. `xcrun altool -t osx --file lunexa-gui-mac-x64-v0.X.Y.Z.dmg --primary-bundle-id org.lunexa-project.lxagui.dmg --notarize-app --username email@address.org`
 
 5. `xcrun altool --notarization-info aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeee -u email@address.org`
 

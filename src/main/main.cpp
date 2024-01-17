@@ -200,7 +200,7 @@ int main(int argc, char *argv[])
     // enable High DPI scaling
     qputenv("QT_ENABLE_HIGHDPI_SCALING", "1");
 
-    // Turn off colors in monerod log output.
+    // Turn off colors in lunexad log output.
     qputenv("TERM", "goaway");
 
 #if defined(Q_OS_MACOS)

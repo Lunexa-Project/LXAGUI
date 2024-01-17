@@ -1,7 +1,7 @@
 ; Monero Fluorine Fermi GUI Wallet Installer for Windows
 ; Copyright (c) 2017-2020, The Lunexa Project
 ; See LICENSE
-#define GuiVersion GetFileVersion("bin\lunexa-wallet-gui.exe")
+#define GuiVersion GetFileVersion("bin\lxagui.exe")
 
 [Setup]
 AppName=Lunexa GUI Wallet
@@ -13,7 +13,7 @@ AppVersion={#GuiVersion}
 VersionInfoVersion={#GuiVersion}
 DefaultDirName={commonpf}\Lunexa GUI Wallet
 DefaultGroupName=Lunexa GUI Wallet
-UninstallDisplayIcon={app}\lunexa-wallet-gui.exe
+UninstallDisplayIcon={app}\lxagui.exe
 PrivilegesRequired=admin
 ArchitecturesInstallIn64BitMode=x64
 ArchitecturesAllowed=x64 arm64
@@ -76,7 +76,7 @@ Source: "FinishImage.bmp"; Flags: dontcopy
 Source: "LICENSE"; DestDir: "{app}"; Flags: ignoreversion
 
 ; Lunexa GUI wallet exe and guide
-Source: "bin\lunexa-wallet-gui.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "bin\lxagui.exe"; DestDir: "{app}"; Flags: ignoreversion
 Source: "bin\lxagui-wallet-guide.pdf"; DestDir: "{app}"; Flags: ignoreversion
 
 ; Lunexa CLI wallet
@@ -87,7 +87,7 @@ Source: "bin\extras\lunexa-gen-trusted-multisig.exe"; DestDir: "{app}"; Flags: i
 Source: "bin\extras\lunexa-wallet-rpc.exe"; DestDir: "{app}"; Flags: ignoreversion
 
 ; Lunexa daemon
-Source: "bin\monerod.exe"; DestDir: "{app}"; Flags: ignoreversion
+Source: "bin\lunexad.exe"; DestDir: "{app}"; Flags: ignoreversion
 
 ; Lunexa daemon wrapped in a batch file that stops before the text window closes, to see any error messages
 Source: "lunexa-daemon.bat"; DestDir: "{app}"; Flags: ignoreversion;
@@ -182,7 +182,7 @@ Name: desktopicon; Description: "Create a &desktop icon"; GroupDescription: "Add
 Filename: "{app}\ReadMe.htm"; Description: "Show ReadMe"; Flags: postinstall shellexec skipifsilent
 
 ; DON'T offer to run the wallet right away, let the people read about initial blockchain download first in the ReadMe
-; Filename: "{app}\lunexa-wallet-gui.exe"; Description: "Run GUI Wallet now"; Flags: postinstall nowait skipifsilent
+; Filename: "{app}\lxagui.exe"; Description: "Run GUI Wallet now"; Flags: postinstall nowait skipifsilent
 
 
 [Code]
@@ -302,7 +302,7 @@ begin
     // Re-build "lunexa-daemon.bat" according to actual install and blockchain directory used
     SetArrayLength(s, 3);
     s[0] := 'REM Execute the Lunexa daemon and then stay with window open after it exits';
-    s[1] := '"' + ExpandConstant('{app}\monerod.exe') + '" ' + DaemonFlags('');
+    s[1] := '"' + ExpandConstant('{app}\lunexad.exe') + '" ' + DaemonFlags('');
     s[2] := 'PAUSE';
     SaveStringsToFile(ExpandConstant('{app}\lunexa-daemon.bat'), s, false); 
   end;
@@ -322,14 +322,14 @@ end;
 [Icons]
 ; Icons in the "Lunexa GUI Wallet" program group
 ; Windows will almost always display icons in alphabetical order, per level, so specify the text accordingly
-Name: "{group}\GUI Wallet"; Filename: "{app}\lunexa-wallet-gui.exe";
-Name: "{group}\GUI Wallet Guide"; Filename: "{app}\lxagui-wallet-guide.pdf"; IconFilename: "{app}\lunexa-wallet-gui.exe"
+Name: "{group}\GUI Wallet"; Filename: "{app}\lxagui.exe";
+Name: "{group}\GUI Wallet Guide"; Filename: "{app}\lxagui-wallet-guide.pdf"; IconFilename: "{app}\lxagui.exe"
 Name: "{group}\Uninstall GUI Wallet"; Filename: "{uninstallexe}"
 
 ; Sub-folder "Utilities";
 ; Note that Windows 10, unlike Windows 7, ignores such sub-folders completely
 ; and insists on displaying ALL icons on one single level
-Name: "{group}\Utilities\Lunexa Daemon"; Filename: "{app}\monerod.exe"; Parameters: {code:DaemonFlags}
+Name: "{group}\Utilities\Lunexa Daemon"; Filename: "{app}\lunexad.exe"; Parameters: {code:DaemonFlags}
 Name: "{group}\Utilities\Read Me"; Filename: "{app}\ReadMe.htm"
 
 ; CLI wallet: Needs a working directory ("Start in:") set in the icon, because with no such directory set
@@ -342,13 +342,13 @@ Name: "{group}\Utilities\Textual (CLI) Wallet"; Filename: "{app}\lunexa-wallet-c
 Name: "{group}\Utilities\x (Check Default Blockchain Folder)"; Filename: "{win}\Explorer.exe"; Parameters: {code:BlockChainDir}
 Name: "{group}\Utilities\x (Check Daemon Log)"; Filename: "Notepad"; Parameters: {code:DaemonLog}
 Name: "{group}\Utilities\x (Check Default Wallet Folder)"; Filename: "{win}\Explorer.exe"; Parameters: """{userdocs}\Lunexa\wallets"""
-Name: "{group}\Utilities\x (Check GUI Wallet Log)"; Filename: "Notepad"; Parameters: """{userappdata}\lunexa-wallet-gui\lunexa-wallet-gui.log"""
+Name: "{group}\Utilities\x (Check GUI Wallet Log)"; Filename: "Notepad"; Parameters: """{userappdata}\lxagui\lxagui.log"""
 Name: "{group}\Utilities\x (Try Daemon, Exit Confirm)"; Filename: "{app}\lunexa-daemon.bat"
 Name: "{group}\Utilities\x (Try GUI Wallet Low Graphics Mode)"; Filename: "{app}\start-low-graphics-mode.bat"
-Name: "{group}\Utilities\x (Try Kill Daemon)"; Filename: "Taskkill.exe"; Parameters: "/IM monerod.exe /T /F"
+Name: "{group}\Utilities\x (Try Kill Daemon)"; Filename: "Taskkill.exe"; Parameters: "/IM lunexad.exe /T /F"
 
 ; Desktop icons, optional with the help of the "Task" section
-Name: "{commondesktop}\GUI Wallet"; Filename: "{app}\lunexa-wallet-gui.exe"; Tasks: desktopicon
+Name: "{commondesktop}\GUI Wallet"; Filename: "{app}\lxagui.exe"; Tasks: desktopicon
 
 
 [Registry]
@@ -363,12 +363,12 @@ Root: HKCU; Subkey: "Software\lunexa-project\lunexa-core"; ValueType: string; Va
 ; Used to easily start payments; example URI: "lunexa://<address>?tx_amount=5.0"
 Root: HKCR; Subkey: "lunexa"; ValueType: "string"; ValueData: "URL:Lunexa Payment Protocol"; Flags: uninsdeletekey
 Root: HKCR; Subkey: "lunexa"; ValueType: "string"; ValueName: "URL Protocol"; ValueData: ""
-Root: HKCR; Subkey: "lunexa\DefaultIcon"; ValueType: "string"; ValueData: "{app}\lunexa-wallet-gui.exe,0"
-Root: HKCR; Subkey: "lunexa\shell\open\command"; ValueType: "string"; ValueData: """{app}\lunexa-wallet-gui.exe"" ""%1"""
+Root: HKCR; Subkey: "lunexa\DefaultIcon"; ValueType: "string"; ValueData: "{app}\lxagui.exe,0"
+Root: HKCR; Subkey: "lunexa\shell\open\command"; ValueType: "string"; ValueData: """{app}\lxagui.exe"" ""%1"""
 
 ; Configure a custom URI scheme: Links starting with "moneroseed:" will start the GUI wallet exe with the URI as command-line parameter
 ; Used to easily hand over custom seed node info to the wallet, with an URI of the form "moneroseed://a.b.c.d:port"
 Root: HKCR; Subkey: "moneroseed"; ValueType: "string"; ValueData: "URL:Lunexa Seed Node Protocol"; Flags: uninsdeletekey
 Root: HKCR; Subkey: "moneroseed"; ValueType: "string"; ValueName: "URL Protocol"; ValueData: ""
-Root: HKCR; Subkey: "moneroseed\DefaultIcon"; ValueType: "string"; ValueData: "{app}\lunexa-wallet-gui.exe,0"
-Root: HKCR; Subkey: "moneroseed\shell\open\command"; ValueType: "string"; ValueData: """{app}\lunexa-wallet-gui.exe"" ""%1"""
+Root: HKCR; Subkey: "moneroseed\DefaultIcon"; ValueType: "string"; ValueData: "{app}\lxagui.exe,0"
+Root: HKCR; Subkey: "moneroseed\shell\open\command"; ValueType: "string"; ValueData: """{app}\lxagui.exe"" ""%1"""

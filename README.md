@@ -98,7 +98,7 @@ Packaging for your favorite distribution would be a welcome contribution!
 
 *Note*: Qt 5.9.7 is the minimum version required to build the GUI.
 
-*Note*: Official GUI releases use lunexa-wallet-gui from this process alongside the supporting binaries (monerod, etc) from the [CLI deterministic builds](https://github.com/lunexa-project/lunexa/blob/master/contrib/gitian/README.md).
+*Note*: Official GUI releases use lxagui from this process alongside the supporting binaries (lunexad, etc) from the [CLI deterministic builds](https://github.com/lunexa-project/lunexa/blob/master/contrib/gitian/README.md).
 
 ### Building Reproducible Windows static binaries with Docker (any OS)
 
@@ -145,9 +145,9 @@ Packaging for your favorite distribution would be a welcome contribution!
    \* `<MONERO_GUI_DIR_FULL_PATH>` - absolute path to `lunexa-gui` directory  
    \* `4` - number of CPU threads to use
 5. Lunexa GUI Linux static binaries will be placed in  `lunexa-gui/build/release/bin` directory
-6. (*Optional*) Compare `lunexa-wallet-gui` SHA-256 hash to the one obtained from a trusted source
+6. (*Optional*) Compare `lxagui` SHA-256 hash to the one obtained from a trusted source
    ```
-   docker run --rm -it -v <MONERO_GUI_DIR_FULL_PATH>:/lunexa-gui -w /lunexa-gui lunexa:build-env-linux sh -c 'shasum -a 256 /lunexa-gui/build/release/bin/lunexa-wallet-gui'
+   docker run --rm -it -v <MONERO_GUI_DIR_FULL_PATH>:/lunexa-gui -w /lunexa-gui lunexa:build-env-linux sh -c 'shasum -a 256 /lunexa-gui/build/release/bin/lxagui'
    ```
    \* `<MONERO_GUI_DIR_FULL_PATH>` - absolute path to `lunexa-gui` directory  
 
