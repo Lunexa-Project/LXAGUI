@@ -17,9 +17,9 @@
         <file>images/whatIsIcon.png</file>
         <file>images/whatIsIcon@2x.png</file>
         <file>components/MenuButton.qml</file>
-        <file>lunexa/utils/gpg_keys/binaryfate.asc</file>
-        <file>lunexa/utils/gpg_keys/fluffypony.asc</file>
-        <file>lunexa/utils/gpg_keys/luigi1111.asc</file>
+        <file>monero/utils/gpg_keys/binaryfate.asc</file>
+        <file>monero/utils/gpg_keys/fluffypony.asc</file>
+        <file>monero/utils/gpg_keys/luigi1111.asc</file>
         <file>pages/Account.qml</file>
         <file>pages/Advanced.qml</file>
         <file>pages/Transfer.qml</file>
@@ -35,7 +35,7 @@
         <file>components/TipItem.qml</file>
         <file>images/tip.png</file>
         <file>components/MenuButtonDivider.qml</file>
-        <file>images/lunexa-vector.svg</file>
+        <file>images/monero-vector.svg</file>
         <file>components/StandardDropdown.qml</file>
         <file>images/whiteDropIndicator.png</file>
         <file>images/whiteDropIndicator@2x.png</file>

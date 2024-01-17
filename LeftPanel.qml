@@ -94,7 +94,7 @@ Rectangle {
         end: Qt.point(height, width)
     }
 
-    // card with lunexa logo
+    // card with monero logo
     Column {
         visible: true
         z: 2
@@ -230,7 +230,7 @@ Rectangle {
                         if (persistentSettings.fiatPriceEnabled && persistentSettings.fiatPriceToggle) {
                             return appWindow.fiatApiCurrencySymbol();
                         } else {
-                            return "LXA"
+                            return "XMR"
                         }
                     }
                     color: MoneroComponents.Style.blackTheme ? "white" : "black"
