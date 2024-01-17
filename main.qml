@@ -55,7 +55,7 @@ import "version.js" as Version
 
 ApplicationWindow {
     id: appWindow
-    title: "Monero" +
+    title: "Lunexa" +
         (persistentSettings.displayWalletNameInTitleBar && walletName
         ? " - " + walletName
         : "")
@@ -109,12 +109,12 @@ ApplicationWindow {
                 "xmreur": "https://api.kraken.com/0/public/Ticker?pair=XMREUR"
             },
             "coingecko": {
-                "xmrusd": "https://api.coingecko.com/api/v3/simple/price?ids=monero&vs_currencies=usd",
-                "xmreur": "https://api.coingecko.com/api/v3/simple/price?ids=monero&vs_currencies=eur"
+                "xmrusd": "https://api.coingecko.com/api/v3/simple/price?ids=lunexa&vs_currencies=usd",
+                "xmreur": "https://api.coingecko.com/api/v3/simple/price?ids=lunexa&vs_currencies=eur"
             },
             "cryptocompare": {
-                "xmrusd": "https://min-api.cryptocompare.com/data/price?fsym=XMR&tsyms=USD",
-                "xmreur": "https://min-api.cryptocompare.com/data/price?fsym=XMR&tsyms=EUR",
+                "xmrusd": "https://min-api.cryptocompare.com/data/price?fsym=LXA&tsyms=USD",
+                "xmreur": "https://min-api.cryptocompare.com/data/price?fsym=LXA&tsyms=EUR",
             }
         }
     }
@@ -415,14 +415,14 @@ ApplicationWindow {
         leftPanel.balanceString = balance
         leftPanel.balanceUnlockedString = balanceU
         if (middlePanel.state === "Account") {
-            middlePanel.accountView.balanceAllText = walletManager.displayAmount(appWindow.currentWallet.balanceAll()) + " XMR";
-            middlePanel.accountView.unlockedBalanceAllText = walletManager.displayAmount(appWindow.currentWallet.unlockedBalanceAll()) + " XMR";
+            middlePanel.accountView.balanceAllText = walletManager.displayAmount(appWindow.currentWallet.balanceAll()) + " LXA";
+            middlePanel.accountView.unlockedBalanceAllText = walletManager.displayAmount(appWindow.currentWallet.unlockedBalanceAll()) + " LXA";
         }
     }
 
     function onUriHandler(uri){
-        if(uri.startsWith("monero://")){
-            var address = uri.substring("monero://".length);
+        if(uri.startsWith("lunexa://")){
+            var address = uri.substring("lunexa://".length);
 
             var params = {}
             if(address.length === 0) return;
@@ -806,7 +806,7 @@ ApplicationWindow {
 
     function onWalletMoneySent(txId, amount) {
         // refresh transaction history here
-        console.log("monero sent found")
+        console.log("lunexa sent found")
         currentWallet.history.refresh(currentWallet.currentSubaddressAccount); // this will refresh model
 
         if(middlePanel.state == "History")
@@ -1066,10 +1066,10 @@ ApplicationWindow {
                 informationPopup.icon = StandardIcon.Critical;
             } else if (received > 0) {
                 if (in_pool) {
-                    informationPopup.text = qsTr("This address received %1 monero, but the transaction is not yet mined").arg(walletManager.displayAmount(received));
+                    informationPopup.text = qsTr("This address received %1 lunexa, but the transaction is not yet mined").arg(walletManager.displayAmount(received));
                 }
                 else {
-                    informationPopup.text = qsTr("This address received %1 monero, with %2 confirmation(s).").arg(walletManager.displayAmount(received)).arg(confirmations);
+                    informationPopup.text = qsTr("This address received %1 lunexa, with %2 confirmation(s).").arg(walletManager.displayAmount(received)).arg(confirmations);
                 }
             }
             else {
@@ -1174,11 +1174,11 @@ ApplicationWindow {
             return ticker;
         } else if(url.startsWith("https://api.coingecko.com/api/v3/")){
             var key = currency === "xmreur" ? "eur" : "usd";
-            if(!resp.hasOwnProperty("monero") || !resp["monero"].hasOwnProperty(key)){
+            if(!resp.hasOwnProperty("lunexa") || !resp["lunexa"].hasOwnProperty(key)){
                 appWindow.fiatApiError("Coingecko API has error(s)");
                 return;
             }
-            return resp["monero"][key];
+            return resp["lunexa"][key];
         } else if(url.startsWith("https://min-api.cryptocompare.com/data/")){
             var key = currency === "xmreur" ? "EUR" : "USD";
             if(!resp.hasOwnProperty(key)){
@@ -1360,7 +1360,7 @@ ApplicationWindow {
                 oshelper.createDesktopEntry();
             } else if (isLinux) {
                 confirmationDialog.title = qsTr("Desktop entry") + translationManager.emptyString;
-                confirmationDialog.text  = qsTr("Would you like to register Monero GUI Desktop entry?") + translationManager.emptyString;
+                confirmationDialog.text  = qsTr("Would you like to register Lunexa GUI Desktop entry?") + translationManager.emptyString;
                 confirmationDialog.icon = StandardIcon.Question;
                 confirmationDialog.cancelText = qsTr("No") + translationManager.emptyString;
                 confirmationDialog.okText = qsTr("Yes") + translationManager.emptyString;
@@ -1379,7 +1379,7 @@ ApplicationWindow {
         id: persistentSettings
         fileName: {
             if(isTails && tailsUsePersistence)
-                return homePath + "/Persistent/Monero/monero-core.conf";
+                return homePath + "/Persistent/Lunexa/lunexa-core.conf";
             return "";
         }
 
@@ -2203,7 +2203,7 @@ ApplicationWindow {
     function checkUpdates() {
         const version = Version.GUI_VERSION.match(/\d+\.\d+\.\d+\.\d+/);
         if (version) {
-            walletManager.checkUpdatesAsync("monero-gui", "gui", getBuildTag(), version[0]);
+            walletManager.checkUpdatesAsync("lxagui", "gui", getBuildTag(), version[0]);
         } else {
             console.error("failed to parse version number", Version.GUI_VERSION);
         }
@@ -2287,7 +2287,7 @@ ApplicationWindow {
             case NetworkType.TESTNET:
                 return 28081;
             default:
-                return 18081;
+                return 9029;
         }
     }
 

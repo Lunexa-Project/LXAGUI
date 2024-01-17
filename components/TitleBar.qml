@@ -259,13 +259,13 @@ Rectangle {
         Item {
             // make dummy space when hiding buttons when titlebar
             // state is 'essentials' in order for the
-            // monero logo to still be centered
+            // lunexa logo to still be centered
             Layout.preferredWidth: parent.height * 2  // amount of buttons we hide
             Layout.preferredHeight: parent.height
             visible: root.state == "essentials"
         }
 
-        // monero logo
+        // lunexa logo
         Item {
             visible: walletName.length === 0
             Layout.fillWidth: true

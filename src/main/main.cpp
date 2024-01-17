@@ -229,7 +229,7 @@ int main(int argc, char *argv[])
     }
 #endif
 
-    app.setApplicationName("monero-core");
+    app.setApplicationName("lunexa");
     app.setOrganizationDomain("getmonero.org");
     app.setOrganizationName("monero-project");
 

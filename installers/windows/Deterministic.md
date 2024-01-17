@@ -6,7 +6,7 @@ The steps to build the Windows installer deterministically by a group of people 
 
 * Agree on a particular version of Inno Setup, and everybody install that
 * Get the zip file for the Windows GUI wallet and unpack it, plus make sure / check that the file timestamps are preserved, i.e. upacked timestamp = timestamp in zip file
-* Build using Inno Setup and the `Monero.iss` script file
+* Build using Inno Setup and the `Lunexa.iss` script file
 * Success: All people arrive at a bit-for-bit identical installer .exe file, which they can verify by calculating and exchanging SHA256 hashes
 
 Some background info why this process is relatively simple:
@@ -23,7 +23,7 @@ You would think timestamp preservation is no problem when unpacking the zip arch
 
 In any case, after unpacking, check the file dates in the `bin` directory where the installer script looks for them with the dates of the files in the zip file: They must be identical.
 
-Note that the the following line in `Monero.iss` is also important regarding file timestamps:
+Note that the the following line in `Lunexa.iss` is also important regarding file timestamps:
 
     TimeStampsInUTC=yes
 
