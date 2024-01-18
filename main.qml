@@ -415,8 +415,8 @@ ApplicationWindow {
         leftPanel.balanceString = balance
         leftPanel.balanceUnlockedString = balanceU
         if (middlePanel.state === "Account") {
-            middlePanel.accountView.balanceAllText = walletManager.displayAmount(appWindow.currentWallet.balanceAll()) + " XMR";
-            middlePanel.accountView.unlockedBalanceAllText = walletManager.displayAmount(appWindow.currentWallet.unlockedBalanceAll()) + " XMR";
+            middlePanel.accountView.balanceAllText = walletManager.displayAmount(appWindow.currentWallet.balanceAll()) + " LXA";
+            middlePanel.accountView.unlockedBalanceAllText = walletManager.displayAmount(appWindow.currentWallet.unlockedBalanceAll()) + " LXA";
         }
     }
 
@@ -893,10 +893,10 @@ ApplicationWindow {
             const addresses = recipients.map(function (recipient) {
                 return recipient.address;
             });
-            const amountsxmr = recipients.map(function (recipient) {
+            const amountslxa = recipients.map(function (recipient) {
                 return recipient.amount;
             });
-            currentWallet.createTransactionAsync(addresses, paymentId, amountsxmr, mixinCount, priority);
+            currentWallet.createTransactionAsync(addresses, paymentId, amountslxa, mixinCount, priority);
         }
     }
 
@@ -1169,18 +1169,18 @@ ApplicationWindow {
                 return;
             }
 
-            var key = currency === "xmreur" ? "XXMRZEUR" : "XXMRZUSD";
+            var key = currency === "lxaeur" ? "XLXAZEUR" : "XLXAZUSD";
             var ticker = resp.result[key]["c"][0];
             return ticker;
         } else if(url.startsWith("https://api.coingecko.com/api/v3/")){
-            var key = currency === "xmreur" ? "eur" : "usd";
+            var key = currency === "lxaeur" ? "eur" : "usd";
             if(!resp.hasOwnProperty("lunexa") || !resp["lunexa"].hasOwnProperty(key)){
                 appWindow.fiatApiError("Coingecko API has error(s)");
                 return;
             }
             return resp["lunexa"][key];
         } else if(url.startsWith("https://min-api.cryptocompare.com/data/")){
-            var key = currency === "xmreur" ? "EUR" : "USD";
+            var key = currency === "lxaeur" ? "EUR" : "USD";
             if(!resp.hasOwnProperty(key)){
                 appWindow.fiatApiError("cryptocompare API has error(s)");
                 return;
@@ -1260,9 +1260,9 @@ ApplicationWindow {
 
     function fiatApiCurrencySymbol() {
         switch (persistentSettings.fiatPriceCurrency) {
-            case "xmrusd":
+            case "lxausd":
                 return "USD";
-            case "xmreur":
+            case "lxaeur":
                 return "EUR";
             default:
                 console.error("unsupported currency", persistentSettings.fiatPriceCurrency);
@@ -1279,7 +1279,7 @@ ApplicationWindow {
         return (amount * ticker).toFixed(2);
     }
 
-    function fiatApiConvertToXMR(amount) {
+    function fiatApiConvertToLXA(amount) {
         const ticker = appWindow.fiatPrice;
         if(ticker <= 0){
             fiatApiError("Invalid ticker value: " + ticker);
@@ -1446,7 +1446,7 @@ ApplicationWindow {
         property bool fiatPriceEnabled: false
         property bool fiatPriceToggle: false
         property string fiatPriceProvider: "kraken"
-        property string fiatPriceCurrency: "xmrusd"
+        property string fiatPriceCurrency: "lxausd"
 
         property string proxyAddress: "127.0.0.1:9050"
         property bool proxyEnabled: isTails

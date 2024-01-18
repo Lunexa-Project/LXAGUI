@@ -2696,8 +2696,8 @@ Voit vaihtaa salasanan lompakon asetuksista.</translation>
     </message>
     <message>
         <location filename="../pages/Transfer.qml" line="169"/>
-        <source>Spendable funds: %1 XMR. Please wait ~%2 minutes for your whole balance to become spendable.</source>
-        <translation>Käytettävät varat: %1 XMR. Odota ~%2 minuuttia, jotta koko saldosi on käyttettävissä.</translation>
+        <source>Spendable funds: %1 LXA. Please wait ~%2 minutes for your whole balance to become spendable.</source>
+        <translation>Käytettävät varat: %1 LXA. Odota ~%2 minuuttia, jotta koko saldosi on käyttettävissä.</translation>
     </message>
     <message>
         <location filename="../pages/Transfer.qml" line="333"/>
@@ -2882,8 +2882,8 @@ Vahvistusviesti:
     </message>
     <message>
         <location filename="../pages/Transfer.qml" line="985"/>
-        <source>Spend XMR from a cold (offline) wallet</source>
-        <translation>Kuluta XMR kylmästä (offline) lompakosta</translation>
+        <source>Spend LXA from a cold (offline) wallet</source>
+        <translation>Kuluta LXA kylmästä (offline) lompakosta</translation>
     </message>
     <message>
         <location filename="../pages/Transfer.qml" line="983"/>
@@ -3185,8 +3185,8 @@ For reserve proofs you don&apos;t need to specify tx id or address.</source>
     </message>
     <message>
         <location filename="../pages/TxKey.qml" line="109"/>
-        <source>Paste amount of XMR (reserve proof only)</source>
-        <translation>Liitä summa XMR (vain varatuille todisteille)</translation>
+        <source>Paste amount of LXA (reserve proof only)</source>
+        <translation>Liitä summa LXA (vain varatuille todisteille)</translation>
     </message>
     <message>
         <location filename="../pages/TxKey.qml" line="138"/>

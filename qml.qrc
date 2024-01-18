@@ -186,8 +186,8 @@
         <file>pages/settings/SettingsLayout.qml</file>
         <file>pages/settings/SettingsInfo.qml</file>
         <file>components/WarningBox.qml</file>
-        <file>images/miningxmr.png</file>
-        <file>images/miningxmr@2x.png</file>
+        <file>images/mininglxa.png</file>
+        <file>images/mininglxa@2x.png</file>
         <file>pages/merchant/Merchant.qml</file>
         <file>pages/merchant/MerchantCheckbox.qml</file>
         <file>pages/merchant/MerchantTrackingList.qml</file>
