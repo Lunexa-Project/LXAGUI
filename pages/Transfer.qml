@@ -31,13 +31,13 @@ import QtQuick 2.9
 import QtQuick.Controls 1.4
 import QtQuick.Layouts 1.1
 import QtQuick.Dialogs 1.2
-import moneroComponents.Clipboard 1.0
-import moneroComponents.PendingTransaction 1.0
-import moneroComponents.Wallet 1.0
-import moneroComponents.NetworkType 1.0
+import lunexaComponents.Clipboard 1.0
+import lunexaComponents.PendingTransaction 1.0
+import lunexaComponents.Wallet 1.0
+import lunexaComponents.NetworkType 1.0
 import FontAwesome 1.0
 import "../components"
-import "../components" as MoneroComponents
+import "../components" as LunexaComponents
 import "." 1.0
 import "../js/TxUtils.js" as TxUtils
 import "../js/Utils.js" as Utils
@@ -154,7 +154,7 @@ Rectangle {
       RowLayout {
           visible: root.warningContent !== ""
 
-          MoneroComponents.WarningBox {
+          LunexaComponents.WarningBox {
               text: warningContent
               onLinkActivated: {
                   appWindow.startDaemon(appWindow.persistentSettings.daemonFlags);
@@ -165,7 +165,7 @@ Rectangle {
       RowLayout {
           visible: leftPanel.minutesToUnlock !== ""
 
-          MoneroComponents.WarningBox {
+          LunexaComponents.WarningBox {
               text: qsTr("Spendable funds: %1 XMR. Please wait ~%2 minutes for your whole balance to become spendable.").arg(leftPanel.balanceUnlockedString).arg(leftPanel.minutesToUnlock)
           }
       }
@@ -264,14 +264,14 @@ Rectangle {
                         spacing: 6
                         Layout.fillWidth: true
 
-                        MoneroComponents.TextPlain {
-                            font.family: MoneroComponents.Style.fontRegular.name
+                        LunexaComponents.TextPlain {
+                            font.family: LunexaComponents.Style.fontRegular.name
                             font.pixelSize: 16
-                            color: MoneroComponents.Style.defaultFontColor
+                            color: LunexaComponents.Style.defaultFontColor
                             text: qsTr("Address") + translationManager.emptyString
                         }
 
-                        MoneroComponents.InlineButton {
+                        LunexaComponents.InlineButton {
                             fontFamily: FontAwesome.fontFamilySolid
                             fontStyleName: "Solid"
                             fontPixelSize: 18
@@ -293,7 +293,7 @@ Rectangle {
                             }
                         }
 
-                        MoneroComponents.InlineButton {
+                        LunexaComponents.InlineButton {
                             fontFamily: FontAwesome.fontFamilySolid
                             fontStyleName: "Solid"
                             text: FontAwesome.qrcode
@@ -305,7 +305,7 @@ Rectangle {
                             }
                         }
 
-                        MoneroComponents.InlineButton {
+                        LunexaComponents.InlineButton {
                             fontFamily: FontAwesome.fontFamily
                             text: FontAwesome.addressBook
                             tooltip: qsTr("Import from address book") + translationManager.emptyString
@@ -326,14 +326,14 @@ Rectangle {
                         Layout.preferredWidth: 125
                         Layout.maximumWidth: recipientLayout.secondRowWidth
 
-                        MoneroComponents.TextPlain {
-                            font.family: MoneroComponents.Style.fontRegular.name
+                        LunexaComponents.TextPlain {
+                            font.family: LunexaComponents.Style.fontRegular.name
                             font.pixelSize: 16
-                            color: MoneroComponents.Style.defaultFontColor
+                            color: LunexaComponents.Style.defaultFontColor
                             text: qsTr("Amount") + translationManager.emptyString
                         }
 
-                        MoneroComponents.InlineButton {
+                        LunexaComponents.InlineButton {
                             fontFamily: FontAwesome.fontFamilySolid
                             fontStyleName: "Solid"
                             fontPixelSize: 16
@@ -365,7 +365,7 @@ Rectangle {
                             Layout.topMargin: -1
                             Layout.leftMargin: 1
                             Layout.rightMargin: recipientLayout.thirdRowWidth + 1
-                            color: MoneroComponents.Style.inputBorderColorInActive
+                            color: LunexaComponents.Style.inputBorderColorInActive
                             height: 1
                             visible: index > 0
                         }
@@ -373,7 +373,7 @@ Rectangle {
                         RowLayout {
                             spacing: 0
 
-                            MoneroComponents.LineEditMulti {
+                            LunexaComponents.LineEditMulti {
                                 KeyNavigation.backtab: index > 0 ? recipientRepeater.itemAt(index - 1).children[1].children[2] : sendButton
                                 KeyNavigation.tab: parent.children[2]
                                 Layout.alignment: Qt.AlignVCenter
@@ -382,23 +382,23 @@ Rectangle {
                                 Layout.fillWidth: true
                                 addressValidation: true
                                 borderDisabled: true
-                                fontColor: error && text != "" ? MoneroComponents.Style.errorColor : MoneroComponents.Style.defaultFontColor
-                                fontFamily: MoneroComponents.Style.fontMonoRegular.name
+                                fontColor: error && text != "" ? LunexaComponents.Style.errorColor : LunexaComponents.Style.defaultFontColor
+                                fontFamily: LunexaComponents.Style.fontMonoRegular.name
                                 fontSize: 14
                                 inputPaddingBottom: 0
                                 inputPaddingTop: 0
                                 inputPaddingRight: 0
-                                placeholderFontFamily: MoneroComponents.Style.fontMonoRegular.name
+                                placeholderFontFamily: LunexaComponents.Style.fontMonoRegular.name
                                 placeholderFontSize: 14
                                 spacing: 0
                                 wrapMode: Text.WrapAnywhere
                                 placeholderText: {
                                     if(persistentSettings.nettype == NetworkType.MAINNET){
-                                        return "4.. / 8.. / monero:.. / OpenAlias";
+                                        return "4.. / 8.. / lunexa:.. / OpenAlias";
                                     } else if (persistentSettings.nettype == NetworkType.STAGENET){
-                                        return "5.. / 7.. / monero:..";
+                                        return "5.. / 7.. / lunexa:..";
                                     } else if(persistentSettings.nettype == NetworkType.TESTNET){
-                                        return "9.. / B.. / monero:..";
+                                        return "9.. / B.. / lunexa:..";
                                     }
                                 }
                                 onTextChanged: {
@@ -410,7 +410,7 @@ Rectangle {
                                 }
                                 text: address
 
-                                MoneroComponents.InlineButton {
+                                LunexaComponents.InlineButton {
                                     small: true
                                     text: qsTr("Resolve") + translationManager.emptyString
                                     visible: TxUtils.isValidOpenAliasAddress(address)
@@ -438,11 +438,11 @@ Rectangle {
                                 Layout.bottomMargin: 1
                                 Layout.leftMargin: recipientLayout.colSpacing / 2 - width
                                 Layout.rightMargin: recipientLayout.colSpacing / 2
-                                color: MoneroComponents.Style.inputBorderColorInActive
+                                color: LunexaComponents.Style.inputBorderColorInActive
                                 width: 1
                             }
 
-                            MoneroComponents.LineEdit {
+                            LunexaComponents.LineEdit {
                                 KeyNavigation.backtab: parent.children[0]
                                 KeyNavigation.tab: index + 1 < recipientRepeater.count ? recipientRepeater.itemAt(index + 1).children[1].children[0] : sendButton
                                 Layout.alignment: Qt.AlignVCenter
@@ -452,13 +452,13 @@ Rectangle {
                                 Layout.preferredWidth: 125
                                 Layout.maximumWidth: 125
                                 borderDisabled: true
-                                fontFamily: MoneroComponents.Style.fontMonoRegular.name
+                                fontFamily: LunexaComponents.Style.fontMonoRegular.name
                                 fontSize: 14
                                 inputPaddingLeft: 0
                                 inputPaddingRight: 0
                                 inputPaddingTop: 0
                                 inputPaddingBottom: 0
-                                placeholderFontFamily: MoneroComponents.Style.fontMonoRegular.name
+                                placeholderFontFamily: LunexaComponents.Style.fontMonoRegular.name
                                 placeholderFontSize: 14
                                 placeholderLeftMargin: 0
                                 placeholderText: "0.00"
@@ -485,7 +485,7 @@ Rectangle {
                                 }
                             }
 
-                            MoneroComponents.TextPlain {
+                            LunexaComponents.TextPlain {
                                 Layout.leftMargin: recipientLayout.colSpacing / 2
                                 Layout.preferredWidth: recipientLayout.thirdRowWidth
                                 font.family: FontAwesome.fontFamilySolid
@@ -508,11 +508,11 @@ Rectangle {
                                 }
                             }
 
-                            MoneroComponents.TextPlain {
+                            LunexaComponents.TextPlain {
                                 Layout.leftMargin: recipientLayout.colSpacing / 2
                                 Layout.preferredWidth: recipientLayout.thirdRowWidth
                                 horizontalAlignment: Text.AlignHCenter
-                                font.family: MoneroComponents.Style.fontRegular.name
+                                font.family: LunexaComponents.Style.fontRegular.name
                                 text: "XMR"
                                 visible: recipientModel.count == 1
                             }
@@ -558,16 +558,16 @@ Rectangle {
                             }
                         }
 
-                        MoneroComponents.TextPlain {
+                        LunexaComponents.TextPlain {
                             Layout.fillWidth: true
                             horizontalAlignment: Text.AlignRight
-                            font.family: MoneroComponents.Style.fontRegular.name
+                            font.family: LunexaComponents.Style.fontRegular.name
                             font.pixelSize: 16
                             text: recipientModel.count > 1 ? qsTr("Total") + translationManager.emptyString : ""
                         }
                     }
 
-                    MoneroComponents.LineEdit {
+                    LunexaComponents.LineEdit {
                         id: totalValue
                         Layout.column: 1
                         Layout.row: 0
@@ -575,7 +575,7 @@ Rectangle {
                         Layout.topMargin: recipientModel.count > 1 ? 0 : -1
                         Layout.maximumWidth: recipientLayout.secondRowWidth
                         borderDisabled: true
-                        fontFamily: MoneroComponents.Style.fontMonoRegular.name
+                        fontFamily: LunexaComponents.Style.fontMonoRegular.name
                         fontSize: 14
                         inputHeight: 30
                         inputPaddingLeft: 0
@@ -587,25 +587,25 @@ Rectangle {
                         visible: recipientModel.count > 1
                     }
 
-                    MoneroComponents.TextPlain {
+                    LunexaComponents.TextPlain {
                         Layout.column: 2
                         Layout.row: 0
                         Layout.preferredWidth: recipientLayout.thirdRowWidth
                         Layout.maximumWidth: recipientLayout.thirdRowWidth
                         horizontalAlignment: Text.AlignHCenter
-                        font.family: MoneroComponents.Style.fontRegular.name
+                        font.family: LunexaComponents.Style.fontRegular.name
                         text: "XMR"
                         visible: recipientModel.count > 1
                     }
 
-                    MoneroComponents.LineEdit {
+                    LunexaComponents.LineEdit {
                         Layout.column: 1
                         Layout.row: recipientModel.count > 1 ? 1 : 0
                         Layout.preferredWidth: recipientLayout.secondRowWidth
                         Layout.topMargin: recipientModel.count > 1 ? 0 : -1
                         Layout.maximumWidth: recipientLayout.secondRowWidth
                         borderDisabled: true
-                        fontFamily: MoneroComponents.Style.fontMonoRegular.name
+                        fontFamily: LunexaComponents.Style.fontMonoRegular.name
                         fontSize: 14
                         inputHeight: 30
                         inputPaddingLeft: 0
@@ -618,13 +618,13 @@ Rectangle {
                         visible: persistentSettings.fiatPriceEnabled
                     }
 
-                    MoneroComponents.TextPlain {
+                    LunexaComponents.TextPlain {
                         Layout.column: 2
                         Layout.row: recipientModel.count > 1 ? 1 : 0
                         Layout.preferredWidth: recipientLayout.thirdRowWidth
                         Layout.topMargin: recipientModel.count > 1 ? 0 : -1
                         Layout.maximumWidth: recipientLayout.thirdRowWidth
-                        font.family: MoneroComponents.Style.fontRegular.name
+                        font.family: LunexaComponents.Style.fontRegular.name
                         horizontalAlignment: Text.AlignHCenter
                         opacity: 0.7
                         text: fiatApiCurrencySymbol()
@@ -642,7 +642,7 @@ Rectangle {
                 anchors.right: recipientLayout.right
                 anchors.rightMargin: recipientLayout.thirdRowWidth
                 color: "transparent"
-                border.color: MoneroComponents.Style.inputBorderColorInActive
+                border.color: LunexaComponents.Style.inputBorderColorInActive
                 border.width: 1
                 radius: 4
             }
@@ -683,13 +683,13 @@ Rectangle {
                     labelFontSize: 16
                 }
 
-                MoneroComponents.TextPlain {
+                LunexaComponents.TextPlain {
                     id: feeLabel
                     Layout.alignment: Qt.AlignBottom
                     Layout.bottomMargin: 11
-                    font.family: MoneroComponents.Style.fontRegular.name
+                    font.family: LunexaComponents.Style.fontRegular.name
                     font.pixelSize: 14
-                    color: MoneroComponents.Style.defaultFontColor
+                    color: LunexaComponents.Style.defaultFontColor
                     opacity: 0.7
                     property bool estimating: false
                     property var estimatedFee: null
@@ -743,7 +743,7 @@ Rectangle {
             }
         }
 
-      MoneroComponents.WarningBox {
+      LunexaComponents.WarningBox {
           text: qsTr("Description field contents match long payment ID format. \
           Please don't paste long payment ID into description field, your funds might be lost.") + translationManager.emptyString;
           visible: warningLongPidDescription
@@ -814,7 +814,7 @@ Rectangle {
           }
       }
 
-      MoneroComponents.WarningBox {
+      LunexaComponents.WarningBox {
           id: paymentIdWarningBox
           text: qsTr("Long payment IDs are obsolete. \
           Long payment IDs were not encrypted on the blockchain and would harm your privacy. \
@@ -822,7 +822,7 @@ Rectangle {
           visible: paymentIdCheckbox.checked || warningLongPidDescription
       }
 
-      MoneroComponents.WarningBox {
+      LunexaComponents.WarningBox {
           id: sendButtonWarningBox
           text: root.sendButtonWarning
           visible: root.sendButtonWarning !== ""
@@ -1045,7 +1045,7 @@ Rectangle {
                 informationPopup.open();
             } else {
                 informationPopup.title = qsTr("Information") + translationManager.emptyString
-                informationPopup.text  = qsTr("Monero sent successfully") + translationManager.emptyString
+                informationPopup.text  = qsTr("Lunexa sent successfully") + translationManager.emptyString
                 informationPopup.icon  = StandardIcon.Information
                 informationPopup.onCloseCallback = null
                 informationPopup.open();

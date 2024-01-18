@@ -83,7 +83,7 @@ QString getAccountName(){
     if (accountName.isEmpty())
         accountName = qgetenv("USERNAME"); // Windows
     if (accountName.isEmpty())
-        accountName = "My monero Account";
+        accountName = "My lunexa Account";
     return accountName;
 }
 
@@ -91,17 +91,17 @@ QString getAccountName(){
 QString xdgMime(){
     return QString(
         "[Desktop Entry]\n"
-        "Name=Monero GUI\n"
+        "Name=Lunexa GUI\n"
         "GenericName=LXAGUI\n"
         "X-GNOME-FullName=LXAGUI\n"
-        "Comment=Monero GUI\n"
-        "Keywords=Monero;\n"
+        "Comment=Lunexa GUI\n"
+        "Keywords=Lunexa;\n"
         "Exec=%1 %u\n"
         "Terminal=false\n"
         "Type=Application\n"
-        "Icon=monero\n"
+        "Icon=lunexa\n"
         "Categories=Network;GNOME;Qt;\n"
-        "MimeType=x-scheme-handler/monero;x-scheme-handler/lunexaseed\n"
+        "MimeType=x-scheme-handler/lunexa;x-scheme-handler/lunexaseed\n"
         "StartupNotify=true\n"
         "X-GNOME-Bugzilla-Bugzilla=GNOME\n"
         "X-GNOME-UsesNotifications=true\n"

@@ -10,8 +10,8 @@ Copyright (c) 2014-2022, The Lunexa Project
   * [Supporting the project](#supporting-the-project)
   * [License](#license)
   * [Translations](#translations)
-  * [Installing the Lunexa GUI from a package](#installing-the-lunexa-gui-from-a-package)
-  * [Compiling the Lunexa GUI from source](#compiling-the-lunexa-gui-from-source)
+  * [Installing the Lunexa GUI from a package](#installing-the-lxagui-from-a-package)
+  * [Compiling the Lunexa GUI from source](#compiling-the-lxagui-from-source)
     + [Building Reproducible Windows static binaries with Docker (any OS)](#building-reproducible-windows-static-binaries-with-docker-any-os)
     + [Building Reproducible Linux static binaries with Docker (any OS)](#building-reproducible-linux-static-binaries-with-docker-any-os)
     + [Building Android APK with Docker (any OS) *Experimental*](#building-android-apk-with-docker-any-os-experimental)
@@ -83,18 +83,15 @@ Status of the translations:
 <img src="https://translate.getlunexa.org/widgets/lunexa/-/gui-wallet/horizontal-auto.svg" alt="Translation status" />
 </a>
 
-## Installing the Lunexa GUI from a package
+## Installing the LxaGUI from a package
 
 Packages are available for
-* Arch Linux: [lunexa-gui](https://archlinux.org/packages/extra/x86_64/lunexa-gui/)
-* Void Linux: `xbps-install -S lunexa-gui`
-* Flatpak: [Lunexa GUI](https://flathub.org/apps/details/org.getlunexa.Lunexa)
-* GuixSD: `guix package -i lunexa-gui`
-* macOS (homebrew): `brew install --cask lunexa-wallet`
+*Still getting built
+
 
 Packaging for your favorite distribution would be a welcome contribution!
 
-## Compiling the Lunexa GUI from source
+## Compiling the LXAGUI from source
 
 *Note*: Qt 5.9.7 is the minimum version required to build the GUI.
 
@@ -332,8 +329,8 @@ The Lunexa GUI on Windows is 64 bits only; 32-bit Windows GUI builds are not off
 6. Clone repository
 
     ```
-    git clone --recursive https://github.com/lunexa-project/lunexa-gui.git
-    cd lunexa-gui
+    git clone --recursive https://github.com/lunexa-project/lxagui.git
+    cd lxagui
     ```
 
 7. Build

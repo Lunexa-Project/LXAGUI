@@ -66,15 +66,15 @@ if(APPLE)
     list(APPEND RESOURCES ${ICON})
 endif()
 
-set(monero_wallet_gui_sources
+set(lunexa_wallet_gui_sources
     ${SOURCE_FILES}
     ${RESOURCES}
 )
 
 if(NOT ANDROID)
-    add_executable(lunexa-wallet-gui ${EXECUTABLE_FLAG} ${monero_wallet_gui_sources})
+    add_executable(lunexa-wallet-gui ${EXECUTABLE_FLAG} ${lunexa_wallet_gui_sources})
 else()
-    add_library(lunexa-wallet-gui SHARED ${monero_wallet_gui_sources})
+    add_library(lunexa-wallet-gui SHARED ${lunexa_wallet_gui_sources})
     set_target_properties(lunexa-wallet-gui PROPERTIES COMPILE_DEFINITIONS "ANDROID")
 endif()
 
@@ -92,11 +92,11 @@ message(STATUS "OpenGL: libraries at ${OPENGL_LIBRARIES}")
 target_include_directories(lunexa-wallet-gui PUBLIC ${Qt5Gui_PRIVATE_INCLUDE_DIRS})
 
 target_include_directories(lunexa-wallet-gui PUBLIC
-	${CMAKE_SOURCE_DIR}/monero/include
-    ${CMAKE_SOURCE_DIR}/monero/src
-    ${CMAKE_SOURCE_DIR}/monero/external/easylogging++
-    ${CMAKE_SOURCE_DIR}/monero/contrib/epee/include
-    ${CMAKE_SOURCE_DIR}/monero/external/qrcodegen
+	${CMAKE_SOURCE_DIR}/lunexa/include
+    ${CMAKE_SOURCE_DIR}/lunexa/src
+    ${CMAKE_SOURCE_DIR}/lunexa/external/easylogging++
+    ${CMAKE_SOURCE_DIR}/lunexa/contrib/epee/include
+    ${CMAKE_SOURCE_DIR}/lunexa/external/qrcodegen
 	${CMAKE_CURRENT_SOURCE_DIR}
 	${CMAKE_CURRENT_SOURCE_DIR}/daemon
     ${CMAKE_CURRENT_SOURCE_DIR}/p2pool

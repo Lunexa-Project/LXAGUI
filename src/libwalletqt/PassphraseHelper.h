@@ -26,8 +26,8 @@
 // STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF
 // THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-#ifndef MONERO_GUI_PASSPHRASEHELPER_H
-#define MONERO_GUI_PASSPHRASEHELPER_H
+#ifndef LUNEXA_GUI_PASSPHRASEHELPER_H
+#define LUNEXA_GUI_PASSPHRASEHELPER_H
 
 #include <QtGlobal>
 #include <wallet/api/wallet2_api.h>
@@ -58,7 +58,7 @@ class PassphraseHelper {
 public:
     PassphraseHelper(PassprasePrompter * prompter=nullptr): m_prompter(prompter) {};
     PassphraseHelper(const PassphraseHelper & h): PassphraseHelper(h.m_prompter) {};
-    Monero::optional<std::string> onDevicePassphraseRequest(bool & on_device);
+    Lunexa::optional<std::string> onDevicePassphraseRequest(bool & on_device);
     void onPassphraseEntered(const QString &passphrase, bool enter_on_device, bool entry_abort);
 
 private:
@@ -71,4 +71,4 @@ private:
 
 };
 
-#endif //MONERO_GUI_PASSPHRASEHELPER_H
+#endif //LUNEXA_GUI_PASSPHRASEHELPER_H

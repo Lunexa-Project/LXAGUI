@@ -30,7 +30,7 @@
 #include <QMutexLocker>
 #include <QDebug>
 
-Monero::optional<std::string> PassphraseHelper::onDevicePassphraseRequest(bool & on_device)
+Lunexa::optional<std::string> PassphraseHelper::onDevicePassphraseRequest(bool & on_device)
 {
     qDebug() << __FUNCTION__;
     QMutexLocker locker(&m_mutex_pass);
@@ -52,9 +52,9 @@ Monero::optional<std::string> PassphraseHelper::onDevicePassphraseRequest(bool &
     if (!on_device) {
         auto tmpPass = m_passphrase.toStdString();
         m_passphrase = QString();
-        return Monero::optional<std::string>(tmpPass);
+        return Lunexa::optional<std::string>(tmpPass);
     } else {
-        return Monero::optional<std::string>();
+        return Lunexa::optional<std::string>();
     }
 }
 

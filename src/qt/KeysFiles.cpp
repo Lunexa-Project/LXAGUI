@@ -100,15 +100,15 @@ void WalletKeysFilesModel::clear()
     endResetModel();
 }
 
-void WalletKeysFilesModel::refresh(const QString &moneroAccountsDir)
+void WalletKeysFilesModel::refresh(const QString &lunexaAccountsDir)
 {
     this->clear();
-    this->findWallets(moneroAccountsDir);
+    this->findWallets(lunexaAccountsDir);
 }
 
-void WalletKeysFilesModel::findWallets(const QString &moneroAccountsDir)
+void WalletKeysFilesModel::findWallets(const QString &lunexaAccountsDir)
 {
-    QDirIterator it(moneroAccountsDir, QDirIterator::Subdirectories);
+    QDirIterator it(lunexaAccountsDir, QDirIterator::Subdirectories);
     while (it.hasNext())
     {
         it.next();

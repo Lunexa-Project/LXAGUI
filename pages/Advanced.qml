@@ -30,7 +30,7 @@ import QtQuick 2.9
 import QtQuick.Controls 1.4
 import QtQuick.Controls.Styles 1.4
 import QtQuick.Layouts 1.1
-import "../components" as MoneroComponents
+import "../components" as LunexaComponents
 import "."
 
 ColumnLayout {
@@ -44,29 +44,29 @@ ColumnLayout {
     property alias prooveView: stateView.prooveView
     property alias state: stateView.state
 
-    MoneroComponents.Navbar {
+    LunexaComponents.Navbar {
         id: navbarId
         Layout.alignment: Qt.AlignHCenter
         Layout.topMargin: height
         Layout.bottomMargin: height
 
-        MoneroComponents.NavbarItem {
+        LunexaComponents.NavbarItem {
             active: state == "Mining"
             text: qsTr("Mining") + translationManager.emptyString
             onSelected: state = "Mining"
             visible: !isAndroid
         }
-        MoneroComponents.NavbarItem {
+        LunexaComponents.NavbarItem {
             active: state == "Prove"
             text: qsTr("Prove/check") + translationManager.emptyString
             onSelected: state = "Prove"
         }
-        MoneroComponents.NavbarItem {
+        LunexaComponents.NavbarItem {
             active: state == "SharedRingDB"
             text: qsTr("Shared RingDB") + translationManager.emptyString
             onSelected: state = "SharedRingDB"
         }
-        MoneroComponents.NavbarItem {
+        LunexaComponents.NavbarItem {
             active: state == "Sign"
             text: qsTr("Sign/verify") + translationManager.emptyString
             onSelected: state = "Sign"

@@ -1,10 +1,10 @@
 [Desktop Entry]
-Name=Monero GUI
+Name=Lunexa GUI
 GenericName=LXAGUI
-Comment=Monero GUI
+Comment=Lunexa GUI
 Exec=lunexa-wallet-gui
 Type=Application
 Terminal=false
 Categories=Network;Qt;Finance;Office;
-Icon=org.getmonero.Monero
+Icon=org.getlunexa.Lunexa
 StartupNotify=true

@@ -35,7 +35,7 @@
 
 #include <wallet/api/wallet2_api.h>
 
-//namespace Monero {
+//namespace Lunexa {
 //class PendingTransaction;
 //}
 
@@ -53,16 +53,16 @@ class PendingTransaction : public QObject
 
 public:
     enum Status {
-        Status_Ok       = Monero::PendingTransaction::Status_Ok,
-        Status_Error    = Monero::PendingTransaction::Status_Error,
-        Status_Critical    = Monero::PendingTransaction::Status_Critical
+        Status_Ok       = Lunexa::PendingTransaction::Status_Ok,
+        Status_Error    = Lunexa::PendingTransaction::Status_Error,
+        Status_Critical    = Lunexa::PendingTransaction::Status_Critical
     };
     Q_ENUM(Status)
 
     enum Priority {
-        Priority_Low    = Monero::PendingTransaction::Priority_Low,
-        Priority_Medium = Monero::PendingTransaction::Priority_Medium,
-        Priority_High   = Monero::PendingTransaction::Priority_High
+        Priority_Low    = Lunexa::PendingTransaction::Priority_Low,
+        Priority_Medium = Lunexa::PendingTransaction::Priority_Medium,
+        Priority_High   = Lunexa::PendingTransaction::Priority_High
     };
     Q_ENUM(Priority)
 
@@ -79,11 +79,11 @@ public:
     Q_INVOKABLE void setFilename(const QString &fileName);
 
 private:
-    explicit PendingTransaction(Monero::PendingTransaction * pt, QObject *parent = 0);
+    explicit PendingTransaction(Lunexa::PendingTransaction * pt, QObject *parent = 0);
 
 private:
     friend class Wallet;
-    Monero::PendingTransaction * m_pimpl;
+    Lunexa::PendingTransaction * m_pimpl;
     QString m_fileName;
 };
 

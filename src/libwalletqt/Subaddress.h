@@ -42,7 +42,7 @@ class Subaddress : public QObject
     Q_OBJECT
 public:
     Q_INVOKABLE void getAll() const;
-    Q_INVOKABLE bool getRow(int index, std::function<void (Monero::SubaddressRow &row)> callback) const;
+    Q_INVOKABLE bool getRow(int index, std::function<void (Lunexa::SubaddressRow &row)> callback) const;
     Q_INVOKABLE void addRow(quint32 accountIndex, const QString &label) const;
     Q_INVOKABLE void setLabel(quint32 accountIndex, quint32 addressIndex, const QString &label) const;
     Q_INVOKABLE void refresh(quint32 accountIndex) const;
@@ -55,11 +55,11 @@ signals:
 public slots:
 
 private:
-    explicit Subaddress(Monero::Subaddress * subaddressImpl, QObject *parent);
+    explicit Subaddress(Lunexa::Subaddress * subaddressImpl, QObject *parent);
     friend class Wallet;
     mutable QReadWriteLock m_lock;
-    Monero::Subaddress * m_subaddressImpl;
-    mutable QList<Monero::SubaddressRow*> m_rows;
+    Lunexa::Subaddress * m_subaddressImpl;
+    mutable QList<Lunexa::SubaddressRow*> m_rows;
 };
 
 #endif // SUBADDRESS_H

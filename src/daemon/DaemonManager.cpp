@@ -50,9 +50,9 @@ namespace {
 
 bool DaemonManager::start(const QString &flags, NetworkType::Type nettype, const QString &dataDir, const QString &bootstrapNodeAddress, bool noSync /* = false*/, bool pruneBlockchain /* = false*/)
 {
-    if (!QFileInfo(m_monerod).isFile())
+    if (!QFileInfo(m_lunexad).isFile())
     {
-        emit daemonStartFailure("\"" + QDir::toNativeSeparators(m_monerod) + "\" " + tr("executable is missing"));
+        emit daemonStartFailure("\"" + QDir::toNativeSeparators(m_lunexad) + "\" " + tr("executable is missing"));
         return false;
     }
 
@@ -106,7 +106,7 @@ bool DaemonManager::start(const QString &flags, NetworkType::Type nettype, const
         arguments << "--max-concurrency" << QString::number(concurrency);
     }
 
-    qDebug() << "starting lunexad " + m_monerod;
+    qDebug() << "starting lunexad " + m_lunexad;
     qDebug() << "With command line arguments " << arguments;
 
     QMutexLocker locker(&m_daemonMutex);
@@ -118,7 +118,7 @@ bool DaemonManager::start(const QString &flags, NetworkType::Type nettype, const
     connect(m_daemon.get(), SIGNAL(readyReadStandardError()), this, SLOT(printError()));
 
     // Start lunexad
-    bool started = m_daemon->startDetached(m_monerod, arguments);
+    bool started = m_daemon->startDetached(m_lunexad, arguments);
 
     // add state changed listener
     connect(m_daemon.get(), SIGNAL(stateChanged(QProcess::ProcessState)), this, SLOT(stateChanged(QProcess::ProcessState)));
@@ -275,7 +275,7 @@ bool DaemonManager::sendCommand(const QStringList &cmd, NetworkType::Type nettyp
     qDebug() << "sending external cmd: " << external_cmd;
 
 
-    p.start(m_monerod, external_cmd);
+    p.start(m_lunexad, external_cmd);
 
     bool started = p.waitForFinished(-1);
     message = p.readAllStandardOutput();
@@ -400,12 +400,12 @@ DaemonManager::DaemonManager(QObject *parent)
 
     // Platform depetent path to lunexad
 #ifdef Q_OS_WIN
-    m_monerod = QApplication::applicationDirPath() + "/lunexad.exe";
+    m_lunexad = QApplication::applicationDirPath() + "/lunexad.exe";
 #elif defined(Q_OS_UNIX)
-    m_monerod = QApplication::applicationDirPath() + "/lunexad";
+    m_lunexad = QApplication::applicationDirPath() + "/lunexad";
 #endif
 
-    if (m_monerod.length() == 0) {
+    if (m_lunexad.length() == 0) {
         qCritical() << "no daemon binary defined for current platform";
     }
 }

@@ -31,9 +31,9 @@ import QtQuick.Controls 1.4
 import QtQuick.Controls.Styles 1.4
 import QtQuick.Layouts 1.1
 import QtQuick.Dialogs 1.2
-import moneroComponents.Clipboard 1.0
+import lunexaComponents.Clipboard 1.0
 import "../version.js" as Version
-import "../components" as MoneroComponents
+import "../components" as LunexaComponents
 import "." 1.0
 
 
@@ -58,15 +58,15 @@ Rectangle {
         spacing: 30
         Layout.fillWidth: true
 
-        MoneroComponents.WarningBox {
-            text: qsTr("WARNING: Do not reuse your Monero keys on another fork, UNLESS this fork has key reuse mitigations built in. Doing so will harm your privacy.") + translationManager.emptyString;
+        LunexaComponents.WarningBox {
+            text: qsTr("WARNING: Do not reuse your Lunexa keys on another fork, UNLESS this fork has key reuse mitigations built in. Doing so will harm your privacy.") + translationManager.emptyString;
         }
 
         //! Manage wallet
         ColumnLayout {
             Layout.fillWidth: true
 
-            MoneroComponents.Label {
+            LunexaComponents.Label {
                 Layout.fillWidth: true
                 fontSize: 22
                 Layout.topMargin: 10
@@ -76,30 +76,30 @@ Rectangle {
             Rectangle {
                 Layout.fillWidth: true
                 height: 2
-                color: MoneroComponents.Style.dividerColor
-                opacity: MoneroComponents.Style.dividerOpacity
+                color: LunexaComponents.Style.dividerColor
+                opacity: LunexaComponents.Style.dividerOpacity
                 Layout.bottomMargin: 10
             }
 
-            MoneroComponents.WarningBox {
-                text: qsTr("WARNING: Copying your seed to clipboard can expose you to malicious software, which may record your seed and steal your Monero. Please write down your seed manually.") + translationManager.emptyString
+            LunexaComponents.WarningBox {
+                text: qsTr("WARNING: Copying your seed to clipboard can expose you to malicious software, which may record your seed and steal your Lunexa. Please write down your seed manually.") + translationManager.emptyString
             }
 
-            MoneroComponents.LineEditMulti {
+            LunexaComponents.LineEditMulti {
                 id: seedText
                 spacing: 0
                 copyButton: true
                 addressValidation: false
                 readOnly: true
                 wrapMode: Text.WordWrap
-                fontColor: MoneroComponents.Style.defaultFontColor
+                fontColor: LunexaComponents.Style.defaultFontColor
             }
         }
 
         ColumnLayout {
             Layout.fillWidth: true
 
-            MoneroComponents.Label {
+            LunexaComponents.Label {
                 Layout.fillWidth: true
                 fontSize: 22
                 Layout.topMargin: 10
@@ -109,12 +109,12 @@ Rectangle {
             Rectangle {
                 Layout.fillWidth: true
                 height: 2
-                color: MoneroComponents.Style.dividerColor
-                opacity: MoneroComponents.Style.dividerOpacity
+                color: LunexaComponents.Style.dividerColor
+                opacity: LunexaComponents.Style.dividerOpacity
                 Layout.bottomMargin: 10
             }
 
-            MoneroComponents.LineEdit {
+            LunexaComponents.LineEdit {
                 Layout.fillWidth: true
                 id: walletCreationHeight
                 readOnly: true
@@ -127,7 +127,7 @@ Rectangle {
         ColumnLayout {
             Layout.fillWidth: true
 
-            MoneroComponents.Label {
+            LunexaComponents.Label {
                 Layout.fillWidth: true
                 fontSize: 22
                 Layout.topMargin: 10
@@ -136,11 +136,11 @@ Rectangle {
             Rectangle {
                 Layout.fillWidth: true
                 height: 2
-                color: MoneroComponents.Style.dividerColor
-                opacity: MoneroComponents.Style.dividerOpacity
+                color: LunexaComponents.Style.dividerColor
+                opacity: LunexaComponents.Style.dividerOpacity
                 Layout.bottomMargin: 10
             }
-            MoneroComponents.LineEditMulti {
+            LunexaComponents.LineEditMulti {
                 Layout.fillWidth: true
                 id: primaryAddress
                 readOnly: true
@@ -149,7 +149,7 @@ Rectangle {
                 labelText: qsTr("Primary address") + translationManager.emptyString
                 fontSize: 16
             }           
-            MoneroComponents.LineEdit {
+            LunexaComponents.LineEdit {
                 Layout.fillWidth: true
                 Layout.topMargin: 25
                 id: secretViewKey
@@ -158,7 +158,7 @@ Rectangle {
                 labelText: qsTr("Secret view key") + translationManager.emptyString
                 fontSize: 16
             }
-            MoneroComponents.LineEdit {
+            LunexaComponents.LineEdit {
                 Layout.fillWidth: true
                 Layout.topMargin: 25
                 id: publicViewKey
@@ -167,7 +167,7 @@ Rectangle {
                 labelText: qsTr("Public view key") + translationManager.emptyString
                 fontSize: 16
             }
-            MoneroComponents.LineEdit {
+            LunexaComponents.LineEdit {
                 Layout.fillWidth: true
                 Layout.topMargin: 25
                 id: secretSpendKey
@@ -176,7 +176,7 @@ Rectangle {
                 labelText: qsTr("Secret spend key") + translationManager.emptyString
                 fontSize: 16
             }
-            MoneroComponents.LineEdit {
+            LunexaComponents.LineEdit {
                 Layout.fillWidth: true
                 Layout.topMargin: 25
                 id: publicSpendKey
@@ -190,7 +190,7 @@ Rectangle {
         ColumnLayout {
             Layout.fillWidth: true
 
-            MoneroComponents.Label {
+            LunexaComponents.Label {
                 Layout.fillWidth: true
                 fontSize: 22
                 Layout.topMargin: 10
@@ -199,13 +199,13 @@ Rectangle {
             Rectangle {
                 Layout.fillWidth: true
                 height: 2
-                color: MoneroComponents.Style.dividerColor
-                opacity: MoneroComponents.Style.dividerOpacity
+                color: LunexaComponents.Style.dividerColor
+                opacity: LunexaComponents.Style.dividerOpacity
                 Layout.bottomMargin: 10
             }
 
             ColumnLayout {
-                MoneroComponents.RadioButton {
+                LunexaComponents.RadioButton {
                     id: showFullQr
                     enabled: !this.checked
                     checked: fullWalletQRCode.visible
@@ -215,7 +215,7 @@ Rectangle {
                         showViewOnlyQr.checked = false
                     }
                 }
-                MoneroComponents.RadioButton {
+                LunexaComponents.RadioButton {
                     enabled: !this.checked
                     id: showViewOnlyQr
                     checked: viewOnlyQRCode.visible
@@ -246,16 +246,16 @@ Rectangle {
                 fillMode: Image.PreserveAspectFit
             }
 
-            MoneroComponents.TextPlain {
+            LunexaComponents.TextPlain {
                 Layout.fillWidth: true
                 font.bold: true
                 font.pixelSize: 16
-                color: MoneroComponents.Style.defaultFontColor
+                color: LunexaComponents.Style.defaultFontColor
                 text: (viewOnlyQRCode.visible) ? qsTr("View Only Wallet") + translationManager.emptyString : qsTr("Spendable Wallet") + translationManager.emptyString
                 horizontalAlignment: Text.AlignHCenter
             }
             
-            MoneroComponents.StandardButton {
+            LunexaComponents.StandardButton {
                 small: true
                 text: qsTr("Done") + translationManager.emptyString
                 onClicked: {
@@ -281,7 +281,7 @@ Rectangle {
         seedText.text = currentWallet.seed === "" ? qsTr("Mnemonic seed protected by hardware device.") + translationManager.emptyString : currentWallet.seed
 
         if(typeof currentWallet != "undefined") {
-            viewOnlyQRCode.source = "image://qrcode/monero_wallet:" + currentWallet.address(0, 0) + "?view_key="+currentWallet.secretViewKey+"&height="+currentWallet.walletCreationHeight
+            viewOnlyQRCode.source = "image://qrcode/lunexa_wallet:" + currentWallet.address(0, 0) + "?view_key="+currentWallet.secretViewKey+"&height="+currentWallet.walletCreationHeight
             fullWalletQRCode.source = viewOnlyQRCode.source +"&spend_key="+currentWallet.secretSpendKey
 
             if(currentWallet.viewOnly) {
