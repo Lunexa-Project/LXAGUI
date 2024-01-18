@@ -70,6 +70,7 @@ if(APPLE OR (WIN32 AND NOT STATIC))
             libwinpthread-1.dll
             libtiff-6.dll
             libstdc++-6.dll
+            libmd4c.dll
             libpng16-16.dll
             libpcre16-0.dll
             libpcre-1.dll
@@ -84,11 +85,13 @@ if(APPLE OR (WIN32 AND NOT STATIC))
             libglib-2.0-0.dll
             libfreetype-6.dll
             libbz2-1.dll
+            libpcre2-8-0.dll
             libpcre2-16-0.dll
             libhidapi-0.dll
             libdouble-conversion.dll
             libgcrypt-20.dll
             libgpg-error-0.dll
+            libunbound-8.dll
             libsodium-26.dll
             libzmq.dll
             #platform files
