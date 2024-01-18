@@ -21,12 +21,8 @@ Copyright (c) 2014-2022, The Lunexa Project
 
 ## Development resources
 
-- Web: [getlunexa.org](https://getlunexa.org)
-- Mail: [dev@getlunexa.org](mailto:dev@getlunexa.org)
-- Github: [https://github.com/lunexa-project/lunexa-gui](https://github.com/lunexa-project/lunexa-gui)
-- IRC: [#lunexa-gui on Libera](irc://irc.libera.chat/#lunexa-gui)
-- Translation platform (Weblate): [translate.getlunexa.org](https://translate.getlunexa.org)
-- UI Design: [Lunexa-GUI on Figma](https://www.figma.com/file/DplJ2DDQfIKiuRvolHX2hN/Lunexa-GUI)
+- Web: [getlunexa.org](https://lunexa.co)
+- Github: [https://github.com/lunexa-project/lxagui](https://github.com/lunexa-project/lxagui)
 
 ## Vulnerability response
 
@@ -51,23 +47,10 @@ As with many development projects, the repository on Github is considered to be 
 
 ## Supporting the project
 
-Lunexa is a 100% community-sponsored endeavor. If you want to join our efforts, the easiest thing you can do is support the project financially. Both Lunexa and Bitcoin donations can be made to **donate.getlunexa.org** if using a client that supports the [OpenAlias](https://openalias.org) standard.
+Lunexa is a 100% community-sponsored endeavor. If you want to join our efforts, the easiest thing you can do is support the project financially. 
 
-The Lunexa donation address is: `888tNkZrPN6JsEgekjMnABU4TBzc2Dt29EPAvkRxbANsAnjyPbb3iQ1YBRk1UXcdRsiKc9dhwMVgN5S9cQUiyoogDavup3H` (viewkey: `f359631075708155cc3d92a32b75a7d02a5dcf27756707b47a2b31b21c389501`)
+*LINK WILL BE UPDATED*
 
-The Bitcoin donation address is: `1KTexdemPdxSBcG55heUuTjDRYqbC5ZL8H`
-
-GUI development funding and/or some supporting services are also graciously provided by [sponsors](https://www.getlunexa.org/community/sponsorships/):
-
-[<img width="150" src="https://www.getlunexa.org/img/sponsors/tarilabs.png"/>](https://tarilabs.com/)
-[<img width="150" src="https://www.getlunexa.org/img/sponsors/globee.png"/>](https://globee.com/)
-[<img width="150" src="https://www.getlunexa.org/img/sponsors/symas.png"/>](https://symas.com/)
-[<img width="150" src="https://www.getlunexa.org/img/sponsors/forked_logo.png"/>](http://www.forked.net/)
-[<img width="150" src="https://www.getlunexa.org/img/sponsors/macstadium.png"/>](https://www.macstadium.com/)
-
-There are also several mining pools that kindly donate a portion of their fees, [a list of them can be found on our Bitcointalk post](https://bitcointalk.org/index.php?topic=583449.0).
-
-## License
 
 See [LICENSE](LICENSE).
 
@@ -102,51 +85,51 @@ Packaging for your favorite distribution would be a welcome contribution!
 1. Install Docker [https://docs.docker.com/engine/install/](https://docs.docker.com/engine/install/)
 2. Clone the repository
    ```
-   git clone --branch master --recursive https://github.com/lunexa-project/lunexa-gui.git
+   git clone --branch master --recursive https://github.com/lunexa-project/lxagui.git
    ```
    \* `master` - replace with the desired version tag (e.g. `v0.18.3.1`) to build the release binaries.
 3. Prepare build environment
    ```
-   cd lunexa-gui
+   cd lxagui
    docker build --tag lunexa:build-env-windows --build-arg THREADS=4 --file Dockerfile.windows .
    ```
    \* `4` - number of CPU threads to use
 
 4. Build
    ```
-   docker run --rm -it -v <LUNEXA_GUI_DIR_FULL_PATH>:/lunexa-gui -w /lunexa-gui lunexa:build-env-windows sh -c 'make depends root=/depends target=x86_64-w64-mingw32 tag=win-x64 -j4'
+   docker run --rm -it -v <LUNEXA_GUI_DIR_FULL_PATH>:/lxagui -w /lxagui lunexa:build-env-windows sh -c 'make depends root=/depends target=x86_64-w64-mingw32 tag=win-x64 -j4'
    ```
-   \* `<LUNEXA_GUI_DIR_FULL_PATH>` - absolute path to `lunexa-gui` directory  
+   \* `<LUNEXA_GUI_DIR_FULL_PATH>` - absolute path to `lxagui` directory  
    \* `4` - number of CPU threads to use
-5. Lunexa GUI Windows static binaries will be placed in  `lunexa-gui/build/x86_64-w64-mingw32/release/bin` directory
+5. Lunexa GUI Windows static binaries will be placed in  `lxagui/build/x86_64-w64-mingw32/release/bin` directory
 
 ### Building Reproducible Linux static binaries with Docker (any OS)
 
 1. Install Docker [https://docs.docker.com/engine/install/](https://docs.docker.com/engine/install/)
 2. Clone the repository
    ```
-   git clone --branch master --recursive https://github.com/lunexa-project/lunexa-gui.git
+   git clone --branch master --recursive https://github.com/lunexa-project/lxagui.git
    ```
    \* `master` - replace with the desired version tag (e.g. `v0.18.3.1`) to build the release binaries.
 3. Prepare build environment
    ```
-   cd lunexa-gui
+   cd lxagui
    docker build --tag lunexa:build-env-linux --build-arg THREADS=4 --file Dockerfile.linux .
    ```
    \* `4` - number of CPU threads to use
 
 4. Build
    ```
-   docker run --rm -it -v <LUNEXA_GUI_DIR_FULL_PATH>:/lunexa-gui -w /lunexa-gui lunexa:build-env-linux sh -c 'make release-static -j4'
+   docker run --rm -it -v <LUNEXA_GUI_DIR_FULL_PATH>:/lxagui -w /lxagui lunexa:build-env-linux sh -c 'make release-static -j4'
    ```
-   \* `<LUNEXA_GUI_DIR_FULL_PATH>` - absolute path to `lunexa-gui` directory  
+   \* `<LUNEXA_GUI_DIR_FULL_PATH>` - absolute path to `lxagui` directory  
    \* `4` - number of CPU threads to use
-5. Lunexa GUI Linux static binaries will be placed in  `lunexa-gui/build/release/bin` directory
+5. Lunexa GUI Linux static binaries will be placed in  `lxagui/build/release/bin` directory
 6. (*Optional*) Compare `lunexa-wallet-gui` SHA-256 hash to the one obtained from a trusted source
    ```
-   docker run --rm -it -v <LUNEXA_GUI_DIR_FULL_PATH>:/lunexa-gui -w /lunexa-gui lunexa:build-env-linux sh -c 'shasum -a 256 /lunexa-gui/build/release/bin/lunexa-wallet-gui'
+   docker run --rm -it -v <LUNEXA_GUI_DIR_FULL_PATH>:/lxagui -w /lxagui lunexa:build-env-linux sh -c 'shasum -a 256 /lxagui/build/release/bin/lunexa-wallet-gui'
    ```
-   \* `<LUNEXA_GUI_DIR_FULL_PATH>` - absolute path to `lunexa-gui` directory  
+   \* `<LUNEXA_GUI_DIR_FULL_PATH>` - absolute path to `lxagui` directory  
 
 ### Building Android APK with Docker (any OS) *Experimental*
  - Minimum Android 9 Pie (API 28)
@@ -154,28 +137,28 @@ Packaging for your favorite distribution would be a welcome contribution!
 1. Install Docker [https://docs.docker.com/engine/install/](https://docs.docker.com/engine/install/)
 2. Clone the repository
    ```
-   git clone --recursive https://github.com/lunexa-project/lunexa-gui.git
+   git clone --recursive https://github.com/lunexa-project/lxagui.git
    ```
 3. Prepare build environment
    ```
-   cd lunexa-gui
+   cd lxagui
    docker build --tag lunexa:build-env-android --build-arg THREADS=4 --file Dockerfile.android .
    ```
    \* `4` - number of CPU threads to use
 
 4. Build
    ```
-   docker run --rm -it -v <LUNEXA_GUI_DIR_FULL_PATH>:/lunexa-gui -e THREADS=4 lunexa:build-env-android
+   docker run --rm -it -v <LUNEXA_GUI_DIR_FULL_PATH>:/lxagui -e THREADS=4 lunexa:build-env-android
    ```
-   \* `<LUNEXA_GUI_DIR_FULL_PATH>` - absolute path to `lunexa-gui` directory  
+   \* `<LUNEXA_GUI_DIR_FULL_PATH>` - absolute path to `lxagui` directory  
    \* `4` - number of CPU threads to use
-5. Lunexa GUI APK will be placed in  `lunexa-gui/build/Android/release/android-build` directory
+5. Lunexa GUI APK will be placed in  `lxagui/build/Android/release/android-build` directory
 6. Deploy
    * Using ADB (Android debugger bridge)
      - [Enable adb debugging on your device](https://developer.android.com/studio/command-line/adb.html#Enabling)
       * Connect your device with USB and install Lunexa GUI APK with adb:
       ```
-      adb install build/Android/release/android-build/lunexa-gui.apk
+      adb install build/Android/release/android-build/lxagui.apk
       ```
       * Troubleshooting:
       ```
@@ -189,7 +172,7 @@ Packaging for your favorite distribution would be a welcome contribution!
    * Using a web server
       ```
       mkdir /usr/tmp
-      cp build/Android/release/android-build/lunexa-gui.apk /usr/tmp
+      cp build/Android/release/android-build/lxagui.apk /usr/tmp
       docker run -d -v /usr/tmp:/usr/share/nginx/html:ro -p 8080:80 nginx
       ```
       Now it should be accessible through a web browser at
@@ -248,8 +231,8 @@ The following instructions will fetch Qt from your distribution's repositories i
 3. Clone repository
 
     ```
-    git clone --recursive https://github.com/lunexa-project/lunexa-gui.git
-    cd lunexa-gui
+    git clone --recursive https://github.com/lunexa-project/lxagui.git
+    cd lxagui
     ```
 
 4. Build
@@ -277,11 +260,11 @@ The executable can be found in the build/release/bin folder.
 
   `brew install qt5`  (or download QT 5.9.7+ from [qt.io](https://www.qt.io/download-open-source/))
 
-5. Grab an up-to-date copy of the lunexa-gui repository
+5. Grab an up-to-date copy of the lxagui repository
 
    ```
-   git clone --recursive https://github.com/lunexa-project/lunexa-gui.git
-   cd lunexa-gui
+   git clone --recursive https://github.com/lunexa-project/lxagui.git
+   cd lxagui
    ```
 
 6. Start the build
