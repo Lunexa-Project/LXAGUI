@@ -2,7 +2,7 @@ import QtQuick 2.9
 import QtQuick.Controls 2.2
 
 import FontAwesome 1.0
-import "../components" as MoneroComponents
+import "../components" as LunexaComponents
 
 MouseArea {
     signal cut()
