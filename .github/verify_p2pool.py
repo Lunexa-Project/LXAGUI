@@ -4,7 +4,7 @@ from urllib.request import urlretrieve
 import difflib
 
 sech_key = "https://p2pool.io/SChernykh.asc"
-sech_key_backup = "https://raw.githubusercontent.com/monero-project/gitian.sigs/master/gitian-pubkeys/SChernykh.asc"
+sech_key_backup = "https://raw.githubusercontent.com/lunexa-project/gitian.sigs/master/gitian-pubkeys/SChernykh.asc"
 sech_key_fp = "1FCA AB4D 3DC3 310D 16CB  D508 C47F 82B5 4DA8 7ADF"
 
 p2pool_files = [{

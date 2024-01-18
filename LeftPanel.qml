@@ -29,13 +29,13 @@
 import QtQuick 2.9
 import QtQuick.Layouts 1.1
 import QtGraphicalEffects 1.0
-import moneroComponents.Wallet 1.0
-import moneroComponents.NetworkType 1.0
-import moneroComponents.Clipboard 1.0
+import lunexaComponents.Wallet 1.0
+import lunexaComponents.NetworkType 1.0
+import lunexaComponents.Clipboard 1.0
 import FontAwesome 1.0
 
-import "components" as MoneroComponents
-import "components/effects/" as MoneroEffects
+import "components" as LunexaComponents
+import "components/effects/" as LunexaEffects
 
 Rectangle {
     id: panel
@@ -80,21 +80,21 @@ Rectangle {
     anchors.bottom: parent.bottom
     anchors.top: parent.top
 
-    MoneroEffects.GradientBackground {
+    LunexaEffects.GradientBackground {
         anchors.fill: parent
-        fallBackColor: MoneroComponents.Style.middlePanelBackgroundColor
-        initialStartColor: MoneroComponents.Style.leftPanelBackgroundGradientStart
-        initialStopColor: MoneroComponents.Style.leftPanelBackgroundGradientStop
-        blackColorStart: MoneroComponents.Style._b_leftPanelBackgroundGradientStart
-        blackColorStop: MoneroComponents.Style._b_leftPanelBackgroundGradientStop
-        whiteColorStart: MoneroComponents.Style._w_leftPanelBackgroundGradientStart
-        whiteColorStop: MoneroComponents.Style._w_leftPanelBackgroundGradientStop
+        fallBackColor: LunexaComponents.Style.middlePanelBackgroundColor
+        initialStartColor: LunexaComponents.Style.leftPanelBackgroundGradientStart
+        initialStopColor: LunexaComponents.Style.leftPanelBackgroundGradientStop
+        blackColorStart: LunexaComponents.Style._b_leftPanelBackgroundGradientStart
+        blackColorStop: LunexaComponents.Style._b_leftPanelBackgroundGradientStop
+        whiteColorStart: LunexaComponents.Style._w_leftPanelBackgroundGradientStart
+        whiteColorStop: LunexaComponents.Style._w_leftPanelBackgroundGradientStop
         posStart: 0.6
         start: Qt.point(0, 0)
         end: Qt.point(height, width)
     }
 
-    // card with monero logo
+    // card with lunexa logo
     Column {
         visible: true
         z: 2
@@ -116,15 +116,15 @@ Rectangle {
 
                 Image {
                     id: card
-                    visible: !isOpenGL || MoneroComponents.Style.blackTheme
+                    visible: !isOpenGL || LunexaComponents.Style.blackTheme
                     width: 260
                     height: 135
                     fillMode: Image.PreserveAspectFit
-                    source: MoneroComponents.Style.blackTheme ? "qrc:///images/card-background-black" + (currentAccountIndex % MoneroComponents.Style.accountColors.length) + ".png" : "qrc:///images/card-background-white.png"
+                    source: LunexaComponents.Style.blackTheme ? "qrc:///images/card-background-black" + (currentAccountIndex % LunexaComponents.Style.accountColors.length) + ".png" : "qrc:///images/card-background-white.png"
                 }
 
                 DropShadow {
-                    visible: isOpenGL && !MoneroComponents.Style.blackTheme
+                    visible: isOpenGL && !LunexaComponents.Style.blackTheme
                     anchors.fill: card
                     horizontalOffset: 3
                     verticalOffset: 3
@@ -135,7 +135,7 @@ Rectangle {
                     cached: true
                 }
 
-                MoneroComponents.TextPlain {
+                LunexaComponents.TextPlain {
                     id: testnetLabel
                     visible: persistentSettings.nettype != NetworkType.MAINNET
                     text: (persistentSettings.nettype == NetworkType.TESTNET ? qsTr("Testnet") : qsTr("Stagenet")) + translationManager.emptyString
@@ -149,7 +149,7 @@ Rectangle {
                     themeTransition: false
                 }
 
-                MoneroComponents.TextPlain {
+                LunexaComponents.TextPlain {
                     id: viewOnlyLabel
                     visible: viewOnly
                     text: qsTr("View Only") + translationManager.emptyString
@@ -172,11 +172,11 @@ Rectangle {
                 height: 490
                 width: 50
 
-                MoneroComponents.Label {
+                LunexaComponents.Label {
                     fontSize: 12
                     id: accountIndex
                     text: qsTr("Account") + translationManager.emptyString + " #" + currentAccountIndex
-                    color: MoneroComponents.Style.blackTheme ? "white" : "black"
+                    color: LunexaComponents.Style.blackTheme ? "white" : "black"
                     anchors.left: parent.left
                     anchors.leftMargin: 60
                     anchors.top: parent.top
@@ -191,11 +191,11 @@ Rectangle {
                     }
                 }
 
-                MoneroComponents.Label {
+                LunexaComponents.Label {
                     fontSize: 16
                     id: accountLabel
                     textWidth: 170
-                    color: MoneroComponents.Style.blackTheme ? "white" : "black"
+                    color: LunexaComponents.Style.blackTheme ? "white" : "black"
                     anchors.left: parent.left
                     anchors.leftMargin: 60
                     anchors.top: parent.top
@@ -211,11 +211,11 @@ Rectangle {
                     }
                 }
 
-                MoneroComponents.Label {
+                LunexaComponents.Label {
                     fontSize: 16
                     visible: isSyncing
                     text: qsTr("Syncing...") + translationManager.emptyString
-                    color: MoneroComponents.Style.blackTheme ? "white" : "black"
+                    color: LunexaComponents.Style.blackTheme ? "white" : "black"
                     anchors.left: parent.left
                     anchors.leftMargin: 20
                     anchors.bottom: currencyLabel.top
@@ -223,7 +223,7 @@ Rectangle {
                     themeTransition: false
                 }
 
-                MoneroComponents.TextPlain {
+                LunexaComponents.TextPlain {
                     id: currencyLabel
                     font.pixelSize: 16
                     text: {
@@ -233,7 +233,7 @@ Rectangle {
                             return "XMR"
                         }
                     }
-                    color: MoneroComponents.Style.blackTheme ? "white" : "black"
+                    color: LunexaComponents.Style.blackTheme ? "white" : "black"
                     anchors.left: parent.left
                     anchors.leftMargin: 20
                     anchors.top: parent.top
@@ -249,16 +249,16 @@ Rectangle {
                     }
                 }
 
-                MoneroComponents.TextPlain {
+                LunexaComponents.TextPlain {
                     id: balancePart1
                     themeTransition: false
                     anchors.left: parent.left
                     anchors.leftMargin: 58
                     anchors.baseline: currencyLabel.baseline
-                    color: MoneroComponents.Style.blackTheme ? "white" : "black"
+                    color: LunexaComponents.Style.blackTheme ? "white" : "black"
                     Binding on color {
                         when: balancePart1MouseArea.containsMouse || balancePart2MouseArea.containsMouse
-                        value: MoneroComponents.Style.orange
+                        value: LunexaComponents.Style.orange
                     }
                     text: {
                         if (persistentSettings.fiatPriceEnabled && persistentSettings.fiatPriceToggle) {
@@ -288,7 +288,7 @@ Rectangle {
                         }
                     }
                 }
-                MoneroComponents.TextPlain {
+                LunexaComponents.TextPlain {
                     id: balancePart2
                     themeTransition: false
                     anchors.left: balancePart1.right
@@ -348,14 +348,14 @@ Rectangle {
             property var previousButton: transferButton
 
             // top border
-            MoneroComponents.MenuButtonDivider {
+            LunexaComponents.MenuButtonDivider {
                 anchors.left: parent.left
                 anchors.right: parent.right
                 anchors.leftMargin: 20
             }
 
             // ------------- Account tab ---------------
-            MoneroComponents.MenuButton {
+            LunexaComponents.MenuButton {
                 id: accountButton
                 anchors.left: parent.left
                 anchors.right: parent.right
@@ -369,7 +369,7 @@ Rectangle {
                 }
             }
 
-            MoneroComponents.MenuButtonDivider {
+            LunexaComponents.MenuButtonDivider {
                 visible: accountButton.present
                 anchors.left: parent.left
                 anchors.right: parent.right
@@ -377,7 +377,7 @@ Rectangle {
             }
 
             // ------------- Transfer tab ---------------
-            MoneroComponents.MenuButton {
+            LunexaComponents.MenuButton {
                 id: transferButton
                 anchors.left: parent.left
                 anchors.right: parent.right
@@ -390,7 +390,7 @@ Rectangle {
                 }
             }
 
-            MoneroComponents.MenuButtonDivider {
+            LunexaComponents.MenuButtonDivider {
                 visible: transferButton.present
                 anchors.left: parent.left
                 anchors.right: parent.right
@@ -399,7 +399,7 @@ Rectangle {
 
             // ------------- AddressBook tab ---------------
 
-            MoneroComponents.MenuButton {
+            LunexaComponents.MenuButton {
                 id: addressBookButton
                 anchors.left: parent.left
                 anchors.right: parent.right
@@ -413,7 +413,7 @@ Rectangle {
                 }
             }
 
-            MoneroComponents.MenuButtonDivider {
+            LunexaComponents.MenuButtonDivider {
                 visible: addressBookButton.present
                 anchors.left: parent.left
                 anchors.right: parent.right
@@ -421,7 +421,7 @@ Rectangle {
             }
 
             // ------------- Receive tab ---------------
-            MoneroComponents.MenuButton {
+            LunexaComponents.MenuButton {
                 id: receiveButton
                 anchors.left: parent.left
                 anchors.right: parent.right
@@ -434,7 +434,7 @@ Rectangle {
                 }
             }
 
-            MoneroComponents.MenuButtonDivider {
+            LunexaComponents.MenuButtonDivider {
                 visible: receiveButton.present
                 anchors.left: parent.left
                 anchors.right: parent.right
@@ -443,7 +443,7 @@ Rectangle {
 
             // ------------- History tab ---------------
 
-            MoneroComponents.MenuButton {
+            LunexaComponents.MenuButton {
                 id: historyButton
                 anchors.left: parent.left
                 anchors.right: parent.right
@@ -456,7 +456,7 @@ Rectangle {
                 }
             }
 
-            MoneroComponents.MenuButtonDivider {
+            LunexaComponents.MenuButtonDivider {
                 visible: historyButton.present
                 anchors.left: parent.left
                 anchors.right: parent.right
@@ -464,7 +464,7 @@ Rectangle {
             }
 
             // ------------- Advanced tab ---------------
-            MoneroComponents.MenuButton {
+            LunexaComponents.MenuButton {
                 id: advancedButton
                 visible: appWindow.walletMode >= 2
                 anchors.left: parent.left
@@ -478,7 +478,7 @@ Rectangle {
                 }
             }
 
-            MoneroComponents.MenuButtonDivider {
+            LunexaComponents.MenuButtonDivider {
                 visible: advancedButton.present && appWindow.walletMode >= 2
                 anchors.left: parent.left
                 anchors.right: parent.right
@@ -486,7 +486,7 @@ Rectangle {
             }
 
             // ------------- Settings tab ---------------
-            MoneroComponents.MenuButton {
+            LunexaComponents.MenuButton {
                 id: settingsButton
                 anchors.left: parent.left
                 anchors.right: parent.right
@@ -499,7 +499,7 @@ Rectangle {
                 }
             }
 
-            MoneroComponents.MenuButtonDivider {
+            LunexaComponents.MenuButtonDivider {
                 visible: settingsButton.present
                 anchors.left: parent.left
                 anchors.right: parent.right
@@ -521,7 +521,7 @@ Rectangle {
             color: "transparent"
         }
 
-        MoneroComponents.ProgressBar {
+        LunexaComponents.ProgressBar {
             id: progressBar
             anchors.left: parent.left
             anchors.right: parent.right
@@ -531,7 +531,7 @@ Rectangle {
             visible: !appWindow.disconnected
         }
 
-        MoneroComponents.ProgressBar {
+        LunexaComponents.ProgressBar {
             id: daemonProgressBar
             anchors.left: parent.left
             anchors.right: parent.right
@@ -541,7 +541,7 @@ Rectangle {
             height: 62
         }
         
-        MoneroComponents.NetworkStatusItem {
+        LunexaComponents.NetworkStatusItem {
             id: networkStatus
             anchors.left: parent.left
             anchors.right: parent.right

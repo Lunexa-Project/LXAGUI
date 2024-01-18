@@ -3,9 +3,9 @@ import QtQuick 2.9
 import "../components" as MoneroComponents
 
 TextEdit {
-    color: MoneroComponents.Style.defaultFontColor
-    font.family: MoneroComponents.Style.fontRegular.name
-    selectionColor: MoneroComponents.Style.textSelectionColor
+    color: LunexaComponents.Style.defaultFontColor
+    font.family: LunexaComponents.Style.fontRegular.name
+    selectionColor: LunexaComponents.Style.textSelectionColor
     wrapMode: Text.Wrap
     readOnly: true
     selectByMouse: true

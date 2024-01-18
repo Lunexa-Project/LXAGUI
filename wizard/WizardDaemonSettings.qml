@@ -32,7 +32,7 @@ import QtQuick.Layouts 1.2
 import QtQuick.Controls 2.0
 
 import "../js/Wizard.js" as Wizard
-import "../components" as MoneroComponents
+import "../components" as LunexaComponents
 
 ColumnLayout {
     Layout.fillWidth: true
@@ -49,7 +49,7 @@ ColumnLayout {
         }
     }
 
-    MoneroComponents.RadioButton {
+    LunexaComponents.RadioButton {
         id: localNode
         Layout.fillWidth: true
         text: qsTr("Start a node automatically in background (recommended)") + translationManager.emptyString
@@ -70,7 +70,7 @@ ColumnLayout {
         Layout.topMargin: 8
         Layout.fillWidth: true
 
-        MoneroComponents.LineEdit {
+        LunexaComponents.LineEdit {
             id: blockchainFolder
             Layout.fillWidth: true
 
@@ -90,7 +90,7 @@ ColumnLayout {
             text: persistentSettings.blockchainDataDir
             onLabelLinkActivated: persistentSettings.blockchainDataDir = ""
 
-            MoneroComponents.InlineButton {
+            LunexaComponents.InlineButton {
                 small: true
                 text: qsTr("Browse") + translationManager.emptyString
                 onClicked: {
@@ -104,7 +104,7 @@ ColumnLayout {
 
         RowLayout {
             id: pruningOptionRow
-            MoneroComponents.CheckBox {
+            LunexaComponents.CheckBox {
                 id: pruneBlockchainCheckBox
                 checked: !existingDbWarning.visible ? persistentSettings.pruneBlockchain : false
                 enabled: !existingDbWarning.visible
@@ -119,8 +119,8 @@ ColumnLayout {
                 id: existingDbWarning
                 text: "A blockchain database already exists here. Select a new location to start a pruned node"
                 visible: daemonManager ? daemonManager.checkLmdbExists(blockchainFolder.text) : false
-                color: MoneroComponents.Style.defaultFontColor
-                font.family: MoneroComponents.Style.fontRegular.name
+                color: LunexaComponents.Style.defaultFontColor
+                font.family: LunexaComponents.Style.fontRegular.name
             }
         }
 
@@ -132,8 +132,8 @@ ColumnLayout {
                 text: qsTr("Bootstrap node") + translationManager.emptyString
                 Layout.topMargin: 10
                 Layout.fillWidth: true
-                font.family: MoneroComponents.Style.fontRegular.name
-                color: MoneroComponents.Style.defaultFontColor
+                font.family: LunexaComponents.Style.fontRegular.name
+                color: LunexaComponents.Style.defaultFontColor
                 font.pixelSize: {
                     if(wizardController.layoutScale === 2 ){
                         return 22;
@@ -149,12 +149,12 @@ ColumnLayout {
             }
 
             Text {
-                text: qsTr("Additionally, you may specify a bootstrap node to use Monero immediately.") + translationManager.emptyString
+                text: qsTr("Additionally, you may specify a bootstrap node to use Lunexa immediately.") + translationManager.emptyString
                 Layout.topMargin: 4
                 Layout.fillWidth: true
 
-                font.family: MoneroComponents.Style.fontRegular.name
-                color: MoneroComponents.Style.dimmedFontColor
+                font.family: LunexaComponents.Style.fontRegular.name
+                color: LunexaComponents.Style.dimmedFontColor
 
                 font.pixelSize: {
                     if(wizardController.layoutScale === 2 ){
@@ -175,7 +175,7 @@ ColumnLayout {
             spacing: 8
             Layout.fillWidth: true
 
-            MoneroComponents.RemoteNodeEdit {
+            LunexaComponents.RemoteNodeEdit {
                 id: bootstrapNodeEdit
                 Layout.minimumWidth: 300
                 //labelText: qsTr("Bootstrap node (leave blank if not wanted)") + translationManager.emptyString
@@ -185,7 +185,7 @@ ColumnLayout {
         }
     }
 
-    MoneroComponents.RadioButton {
+    LunexaComponents.RadioButton {
         id: remoteNode
         Layout.fillWidth: true
         Layout.topMargin: 8
@@ -198,7 +198,7 @@ ColumnLayout {
         }
     }
 
-    MoneroComponents.RemoteNodeList {
+    LunexaComponents.RemoteNodeList {
         Layout.fillWidth: true
         Layout.topMargin: 8
         visible: remoteNode.checked

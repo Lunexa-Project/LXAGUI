@@ -32,14 +32,14 @@ import QtQuick.Layouts 1.2
 import QtQuick.Controls 2.0
 import QtGraphicalEffects 1.0
 import Qt.labs.folderlistmodel 2.1
-import moneroComponents.NetworkType 1.0
-import moneroComponents.WalletKeysFilesModel 1.0
+import lunexaComponents.NetworkType 1.0
+import lunexaComponents.WalletKeysFilesModel 1.0
 import FontAwesome 1.0
 
 import "../js/Wizard.js" as Wizard
 import "../components"
-import "../components" as MoneroComponents
-import "../components/effects/" as MoneroEffects
+import "../components" as LunexaComponents
+import "../components/effects/" as LunexaEffects
 
 Rectangle {
     id: wizardOpenWallet1
@@ -90,10 +90,10 @@ Rectangle {
                 columnSpacing: 20
                 columns: 2
 
-                MoneroComponents.TextPlain {
+                LunexaComponents.TextPlain {
                     Layout.fillWidth: true
                     text: qsTr("Recently opened") + ":" + translationManager.emptyString
-                    font.family: MoneroComponents.Style.fontLight.name
+                    font.family: LunexaComponents.Style.fontLight.name
                     font.pixelSize: 16
                 }
 
@@ -169,9 +169,9 @@ Rectangle {
                             else if(networktype === 2) return qsTr("Stagenet");
                             return "";
                         }
-                        color: item.focus || itemMouseArea.containsMouse ? MoneroComponents.Style.titleBarButtonHoverColor : "transparent"
+                        color: item.focus || itemMouseArea.containsMouse ? LunexaComponents.Style.titleBarButtonHoverColor : "transparent"
                         border.width: item.focus ? 3 : 0
-                        border.color: MoneroComponents.Style.inputBorderColorActive
+                        border.color: LunexaComponents.Style.inputBorderColorActive
 
                         Accessible.role: Accessible.ListItem
                         Accessible.name: {
@@ -192,13 +192,13 @@ Rectangle {
                             height: 1
                             width: parent.width
                             anchors.top: parent.top
-                            color: MoneroComponents.Style.appWindowBorderColor
+                            color: LunexaComponents.Style.appWindowBorderColor
                             visible: index <= 2  // top row
 
-                            MoneroEffects.ColorTransition {
+                            LunexaEffects.ColorTransition {
                                 targetObj: parent
-                                blackColor: MoneroComponents.Style._b_appWindowBorderColor
-                                whiteColor: MoneroComponents.Style._w_appWindowBorderColor
+                                blackColor: LunexaComponents.Style._b_appWindowBorderColor
+                                whiteColor: LunexaComponents.Style._w_appWindowBorderColor
                             }
                         }
 
@@ -229,13 +229,13 @@ Rectangle {
                                     }
                                     visible: {
                                         if(!isOpenGL) return true;
-                                        if(MoneroComponents.Style.blackTheme) return true;
+                                        if(LunexaComponents.Style.blackTheme) return true;
                                         return false;
                                     }
                                 }
 
                                 Colorize {
-                                    visible: isOpenGL && !MoneroComponents.Style.blackTheme
+                                    visible: isOpenGL && !LunexaComponents.Style.blackTheme
                                     anchors.fill: icon
                                     source: icon
                                     lightness: 0.65 // +65%
@@ -265,8 +265,8 @@ Rectangle {
                                     Layout.preferredHeight: 26
                                     Layout.alignment: Qt.AlignLeft | Qt.AlignVCenter
                                     Layout.fillWidth: true
-                                    font.family: MoneroComponents.Style.fontRegular.name
-                                    color: MoneroComponents.Style.defaultFontColor
+                                    font.family: LunexaComponents.Style.fontRegular.name
+                                    color: LunexaComponents.Style.defaultFontColor
                                     font.pixelSize: 16
 
                                     wrapMode: Text.WordWrap
@@ -281,8 +281,8 @@ Rectangle {
                                     Layout.alignment: Qt.AlignLeft | Qt.AlignVCenter
                                     Layout.fillWidth: true
                                     text: item.networkType
-                                    font.family: MoneroComponents.Style.fontRegular.name
-                                    color: MoneroComponents.Style.dimmedFontColor
+                                    font.family: LunexaComponents.Style.fontRegular.name
+                                    color: LunexaComponents.Style.dimmedFontColor
                                     font.pixelSize: 14
 
                                     wrapMode: Text.WordWrap
@@ -301,13 +301,13 @@ Rectangle {
                         Rectangle {
                             height: 1
                             width: parent.width
-                            color: MoneroComponents.Style.appWindowBorderColor
+                            color: LunexaComponents.Style.appWindowBorderColor
                             anchors.bottom: parent.bottom
 
-                            MoneroEffects.ColorTransition {
+                            LunexaEffects.ColorTransition {
                                 targetObj: parent
-                                blackColor: MoneroComponents.Style._b_appWindowBorderColor
-                                whiteColor: MoneroComponents.Style._w_appWindowBorderColor
+                                blackColor: LunexaComponents.Style._b_appWindowBorderColor
+                                whiteColor: LunexaComponents.Style._w_appWindowBorderColor
                             }
                         }
 

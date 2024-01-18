@@ -29,7 +29,7 @@
 import QtQuick 2.9
 import QtQuick.Layouts 1.1
 
-import "../components" as MoneroComponents
+import "../components" as LunexaComponents
 
 Item {
     id: item
@@ -42,7 +42,7 @@ Item {
     property string tipText: ""
     property int fontSize: 16
     property bool fontBold: false
-    property string fontColor: MoneroComponents.Style.defaultFontColor
+    property string fontColor: LunexaComponents.Style.defaultFontColor
     property string fontFamily: ""
     property alias wrapMode: label.wrapMode
     property alias horizontalAlignment: label.horizontalAlignment
@@ -55,7 +55,7 @@ Item {
     width: label.width
     Layout.topMargin: 10
 
-    MoneroComponents.TextPlain {
+    LunexaComponents.TextPlain {
         id: label
         anchors.bottom: parent.bottom
         anchors.bottomMargin: 2
@@ -64,7 +64,7 @@ Item {
             if(fontFamily){
                 return fontFamily;
             } else {
-                return MoneroComponents.Style.fontRegular.name;
+                return LunexaComponents.Style.fontRegular.name;
             }
         }
         font.pixelSize: fontSize

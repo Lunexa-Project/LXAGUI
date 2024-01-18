@@ -31,7 +31,7 @@ import QtQuick.Layouts 1.3
 
 import FontAwesome 1.0
 
-import "../components" as MoneroComponents
+import "../components" as LunexaComponents
 
 Item {
     implicitHeight: layout.height
@@ -42,16 +42,16 @@ Item {
         opacity: mouseArea.containsMouse ? 1 : 0.85
         spacing: 10
 
-        MoneroComponents.Label {
+        LunexaComponents.Label {
             Layout.bottomMargin: 5
-            fontColor: MoneroComponents.Style.defaultFontColor
+            fontColor: LunexaComponents.Style.defaultFontColor
             fontFamily: FontAwesome.fontFamilySolid
             fontSize: 26
             styleName: "Solid"
             text: FontAwesome.language
         }
 
-        MoneroComponents.TextPlain {
+        LunexaComponents.TextPlain {
             font.pixelSize: 14
             text: persistentSettings.language
         }

@@ -31,7 +31,7 @@ import QtQuick.Layouts 1.1
 
 import FontAwesome 1.0
 
-import "../components" as MoneroComponents
+import "../components" as LunexaComponents
 
 Item {
     id: button
@@ -39,7 +39,7 @@ Item {
     property bool primary: true
     property string rightIcon: ""
     property string rightIconInactive: ""
-    property color textColor: primary ? MoneroComponents.Style.buttonTextColor : MoneroComponents.Style.buttonSecondaryTextColor;
+    property color textColor: primary ? LunexaComponents.Style.buttonTextColor : LunexaComponents.Style.buttonSecondaryTextColor;
     property bool small: false
     property alias text: label.text
     property alias fontBold: label.font.bold
@@ -80,8 +80,8 @@ Item {
                 PropertyChanges {
                     target: buttonRect
                     color: primary
-                        ? MoneroComponents.Style.buttonBackgroundColorHover
-                        : MoneroComponents.Style.buttonSecondaryBackgroundColorHover
+                        ? LunexaComponents.Style.buttonBackgroundColorHover
+                        : LunexaComponents.Style.buttonSecondaryBackgroundColorHover
                 }
             },
             State {
@@ -90,8 +90,8 @@ Item {
                 PropertyChanges {
                     target: buttonRect
                     color: primary
-                        ? MoneroComponents.Style.buttonBackgroundColor
-                        : MoneroComponents.Style.buttonSecondaryBackgroundColor
+                        ? LunexaComponents.Style.buttonBackgroundColor
+                        : LunexaComponents.Style.buttonSecondaryBackgroundColor
                 }
             },
             State {
@@ -101,8 +101,8 @@ Item {
                     target: buttonRect
                     opacity: 0.5
                     color: primary
-                        ? MoneroComponents.Style.buttonBackgroundColor
-                        : MoneroComponents.Style.buttonSecondaryBackgroundColor
+                        ? LunexaComponents.Style.buttonBackgroundColor
+                        : LunexaComponents.Style.buttonSecondaryBackgroundColor
                 }
                 PropertyChanges {
                     target: label
@@ -123,16 +123,16 @@ Item {
         spacing: 11
         anchors.centerIn: parent
 
-        MoneroComponents.TextPlain {
+        LunexaComponents.TextPlain {
             id: label
-            font.family: MoneroComponents.Style.fontBold.name
+            font.family: LunexaComponents.Style.fontBold.name
             font.bold: button.primary ? true : false
             font.pixelSize: button.fontSize
             color: !buttonArea.pressed ? button.textColor : "transparent"
             visible: text !== ""
             themeTransition: false
 
-            MoneroComponents.TextPlain {
+            LunexaComponents.TextPlain {
                 anchors.centerIn: parent
                 color: button.textColor
                 font.bold: label.font.bold
@@ -161,7 +161,7 @@ Item {
 
         Text {
             Layout.alignment: Qt.AlignVCenter | Qt.AlignRight
-            color: MoneroComponents.Style.defaultFontColor
+            color: LunexaComponents.Style.defaultFontColor
             font.family: FontAwesome.fontFamilySolid
             font.pixelSize: button.small ? 16 : 20
             font.styleName: "Solid"
@@ -170,7 +170,7 @@ Item {
         }
     }
 
-    MoneroComponents.Tooltip {
+    LunexaComponents.Tooltip {
         id: tooltip
         anchors.fill: parent
     }

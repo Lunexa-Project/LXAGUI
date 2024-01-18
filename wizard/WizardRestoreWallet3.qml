@@ -27,7 +27,7 @@
 // THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 import "../js/Wizard.js" as Wizard
-import "../components" as MoneroComponents
+import "../components" as LunexaComponents
 
 import QtQuick 2.9
 import QtQuick.Layouts 1.2
@@ -60,7 +60,7 @@ Rectangle {
 
             WizardHeader {
                 title: qsTr("Daemon settings") + translationManager.emptyString
-                subtitle: qsTr("To be able to communicate with the Monero network your wallet needs to be connected to a Monero node. For best privacy it's recommended to run your own node.\n\nIf you don't have the option to run your own node, there's an option to connect to a remote node.") + translationManager.emptyString
+                subtitle: qsTr("To be able to communicate with the Lunexa network your wallet needs to be connected to a Lunexa node. For best privacy it's recommended to run your own node.\n\nIf you don't have the option to run your own node, there's an option to connect to a remote node.") + translationManager.emptyString
             }
 
             WizardDaemonSettings {

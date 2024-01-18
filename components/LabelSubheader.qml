@@ -28,8 +28,8 @@
 
 import QtQuick 2.9
 
-import "../components" as MoneroComponents
-import "../components/effects/" as MoneroEffects
+import "../components" as LunexaComponents
+import "../components/effects/" as LunexaEffects
 
 Label {
     id: item
@@ -42,12 +42,12 @@ Label {
         anchors.left: parent.left
         anchors.right: parent.right
         height: 2
-        color: MoneroComponents.Style.appWindowBorderColor
+        color: LunexaComponents.Style.appWindowBorderColor
 
-        MoneroEffects.ColorTransition {
+        LunexaEffects.ColorTransition {
             targetObj: parent
-            blackColor: MoneroComponents.Style._b_appWindowBorderColor
-            whiteColor: MoneroComponents.Style._w_appWindowBorderColor
+            blackColor: LunexaComponents.Style._b_appWindowBorderColor
+            whiteColor: LunexaComponents.Style._w_appWindowBorderColor
         }
     }
 }

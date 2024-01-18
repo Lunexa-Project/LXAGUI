@@ -2,7 +2,7 @@ import QtQuick 2.9
 import QtQuick.Layouts 1.1
 import FontAwesome 1.0
 
-import "../components" as MoneroComponents
+import "../components" as LunexaComponents
 
 ColumnLayout {
     id: settingsListItem
@@ -30,8 +30,8 @@ ColumnLayout {
             anchors.left: parent.left
             anchors.right: parent.right
             height: 1
-            color: MoneroComponents.Style.dividerColor
-            opacity: MoneroComponents.Style.dividerOpacity
+            color: LunexaComponents.Style.dividerColor
+            opacity: LunexaComponents.Style.dividerOpacity
         }
 
         Rectangle {
@@ -54,25 +54,25 @@ ColumnLayout {
                 anchors.leftMargin: 16
                 anchors.verticalCenter: parent.verticalCenter
 
-                MoneroComponents.Label {
+                LunexaComponents.Label {
                     id: iconLabel
                     fontSize: 32
                     fontFamily: FontAwesome.fontFamilySolid
                     anchors.centerIn: parent
-                    fontColor: MoneroComponents.Style.defaultFontColor
+                    fontColor: LunexaComponents.Style.defaultFontColor
                     styleName: "Solid"
                 }
             }
 
-            MoneroComponents.TextPlain {
+            LunexaComponents.TextPlain {
                 id: header
                 anchors.left: icon.right
                 anchors.leftMargin: 16
                 anchors.top: parent.top
-                color: MoneroComponents.Style.defaultFontColor
-                opacity: MoneroComponents.Style.blackTheme ? 1.0 : 0.8
+                color: LunexaComponents.Style.defaultFontColor
+                opacity: LunexaComponents.Style.blackTheme ? 1.0 : 0.8
                 font.bold: true
-                font.family: MoneroComponents.Style.fontRegular.name
+                font.family: LunexaComponents.Style.fontRegular.name
                 font.pixelSize: 16
             }
 
@@ -82,8 +82,8 @@ ColumnLayout {
                 anchors.topMargin: 4
                 anchors.left: icon.right
                 anchors.leftMargin: 16
-                color: MoneroComponents.Style.dimmedFontColor
-                font.family: MoneroComponents.Style.fontRegular.name
+                color: LunexaComponents.Style.dimmedFontColor
+                font.family: LunexaComponents.Style.fontRegular.name
                 font.pixelSize: 15
                 horizontalAlignment: TextInput.AlignLeft
                 wrapMode: Text.WordWrap;
@@ -99,8 +99,8 @@ ColumnLayout {
             anchors.left: parent.left
             anchors.right: parent.right
             height: 1
-            color: MoneroComponents.Style.dividerColor
-            opacity: MoneroComponents.Style.dividerOpacity
+            color: LunexaComponents.Style.dividerColor
+            opacity: LunexaComponents.Style.dividerOpacity
             visible: settingsListItem.isLast
         }
 
@@ -109,21 +109,21 @@ ColumnLayout {
             cursorShape: Qt.PointingHandCursor
             anchors.fill: parent
             hoverEnabled: true
-            onEntered: root.color = MoneroComponents.Style.titleBarButtonHoverColor
+            onEntered: root.color = LunexaComponents.Style.titleBarButtonHoverColor
             onExited: root.color = "transparent"
             onClicked: {
                 settingsListItem.clicked()
             }
         }
 
-        MoneroComponents.TextPlain {
+        LunexaComponents.TextPlain {
             id: symbolText
             anchors.right: parent.right
             anchors.rightMargin: 44
             anchors.verticalCenter: parent.verticalCenter
             font.pixelSize: 12
             font.bold: true
-            color: MoneroComponents.Style.menuButtonTextColor
+            color: LunexaComponents.Style.menuButtonTextColor
             visible: appWindow.ctrlPressed
             themeTransition: false
         }

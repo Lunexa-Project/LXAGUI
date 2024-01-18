@@ -27,7 +27,7 @@
 // THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 import Qt.labs.platform 1.0 as PlatformLabs
-import "." as MoneroComponents
+import "." as LunexaComponents
 
 PlatformLabs.MenuBar {
     PlatformLabs.Menu {
@@ -41,9 +41,9 @@ PlatformLabs.MenuBar {
     PlatformLabs.Menu {
         title: qsTr("View")
         PlatformLabs.MenuItem {
-            text: MoneroComponents.Style.blackTheme ? qsTr("Light Theme") : qsTr("Dark Theme")
+            text: LunexaComponents.Style.blackTheme ? qsTr("Light Theme") : qsTr("Dark Theme")
             onTriggered: {
-                MoneroComponents.Style.blackTheme = !MoneroComponents.Style.blackTheme;
+                LunexaComponents.Style.blackTheme = !LunexaComponents.Style.blackTheme;
             }
         }
         PlatformLabs.MenuItem {

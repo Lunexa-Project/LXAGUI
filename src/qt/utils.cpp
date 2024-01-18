@@ -92,8 +92,8 @@ QString xdgMime(){
     return QString(
         "[Desktop Entry]\n"
         "Name=Monero GUI\n"
-        "GenericName=Monero-GUI\n"
-        "X-GNOME-FullName=Monero-GUI\n"
+        "GenericName=LXAGUI\n"
+        "X-GNOME-FullName=LXAGUI\n"
         "Comment=Monero GUI\n"
         "Keywords=Monero;\n"
         "Exec=%1 %u\n"
@@ -101,11 +101,11 @@ QString xdgMime(){
         "Type=Application\n"
         "Icon=monero\n"
         "Categories=Network;GNOME;Qt;\n"
-        "MimeType=x-scheme-handler/monero;x-scheme-handler/moneroseed\n"
+        "MimeType=x-scheme-handler/monero;x-scheme-handler/lunexaseed\n"
         "StartupNotify=true\n"
         "X-GNOME-Bugzilla-Bugzilla=GNOME\n"
         "X-GNOME-UsesNotifications=true\n"
-        "StartupWMClass=monero-wallet-gui\n"
+        "StartupWMClass=lunexa-wallet-gui\n"
     ).arg(QCoreApplication::applicationFilePath());
 }
 
@@ -117,7 +117,7 @@ void registerXdgMime(){
     // - Tails written to persistent dotfiles
     QString mime = xdgMime();
     QString appPath = QStandardPaths::writableLocation(QStandardPaths::ApplicationsLocation);
-    QString filePath = QString("%1/monero-gui.desktop").arg(appPath);
+    QString filePath = QString("%1/lxagui.desktop").arg(appPath);
 
     if (TailsOS::detect())
     {

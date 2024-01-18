@@ -200,7 +200,7 @@ int main(int argc, char *argv[])
     // enable High DPI scaling
     qputenv("QT_ENABLE_HIGHDPI_SCALING", "1");
 
-    // Turn off colors in monerod log output.
+    // Turn off colors in lunexad log output.
     qputenv("TERM", "goaway");
 
 #if defined(Q_OS_MACOS)
@@ -229,13 +229,13 @@ int main(int argc, char *argv[])
     }
 #endif
 
-    app.setApplicationName("monero-core");
+    app.setApplicationName("lunexa");
     app.setOrganizationDomain("getmonero.org");
-    app.setOrganizationName("monero-project");
+    app.setOrganizationName("lunexa-project");
 
     // Ask to enable Tails OS persistence mode, it affects:
     // - Log file location
-    // - QML Settings file location (monero-core.conf)
+    // - QML Settings file location (lunexa.conf)
     // - Default wallets path
     // Target directory is: ~/Persistent/Monero
     if (isTails) {

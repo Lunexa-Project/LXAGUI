@@ -1,8 +1,8 @@
 [Desktop Entry]
 Name=Monero GUI
-GenericName=Monero-GUI
+GenericName=LXAGUI
 Comment=Monero GUI
-Exec=monero-wallet-gui
+Exec=lunexa-wallet-gui
 Type=Application
 Terminal=false
 Categories=Network;Qt;Finance;Office;

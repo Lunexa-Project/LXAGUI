@@ -18,7 +18,7 @@
   <string>????</string>
 
   <key>CFBundleExecutable</key>
-  <string>monero-wallet-gui</string>
+  <string>lunexa-wallet-gui</string>
   
   <key>CFBundleName</key>
   <string>Monero GUI</string>
@@ -27,7 +27,7 @@
   <string>Copyright © 2014-2020 The Monero Project</string>
 
   <key>CFBundleIdentifier</key>
-  <string>org.monero-project.monero-wallet-gui</string>
+  <string>org.lunexa-project.lunexa-wallet-gui</string>
 
   <key>CFBundleVersion</key>
   <string>@VERSION_LONG@</string>
@@ -53,10 +53,10 @@
     </dict>
     <dict>
       <key>CFBundleURLName</key>
-      <string>moneroseed Handler</string>
+      <string>lunexaseed Handler</string>
       <key>CFBundleURLSchemes</key>
       <array>
-        <string>moneroseed</string>
+        <string>lunexaseed</string>
       </array>
     </dict>
   </array>

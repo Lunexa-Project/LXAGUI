@@ -32,7 +32,7 @@ import QtQuick.Controls 2.0
 import FontAwesome 1.0
 
 import "../js/Wizard.js" as Wizard
-import "../components" as MoneroComponents
+import "../components" as LunexaComponents
 
 ColumnLayout {
     id: root
@@ -74,10 +74,10 @@ ColumnLayout {
             fillRect.color = "#FF0000";
         } else if(strength <= 66){
             strengthString = qsTr("Medium");
-            fillRect.color = (MoneroComponents.Style.blackTheme ? "#FFFF00" : "#FFCC00");
+            fillRect.color = (LunexaComponents.Style.blackTheme ? "#FFFF00" : "#FFCC00");
         } else {
             strengthString = qsTr("High");
-            fillRect.color = (MoneroComponents.Style.blackTheme ? "#00FF00" : "#008000");
+            fillRect.color = (LunexaComponents.Style.blackTheme ? "#00FF00" : "#008000");
         }
 
         progressText.text = passwordStrengthText + strengthString + translationManager.emptyString;
@@ -90,14 +90,14 @@ ColumnLayout {
         subtitle: qsTr("This password cannot be recovered. If you forget it then the wallet will have to be restored from your %1.").arg(!wizardController.walletOptionsIsRecoveringFromDevice ? qsTr("25 word mnemonic seed") : qsTr("hardware wallet"))+ translationManager.emptyString
     }
 
-    MoneroComponents.WarningBox {
+    LunexaComponents.WarningBox {
         text: "<b>%1</b> (%2).".arg(qsTr("Enter a strong password")).arg(qsTr("Using letters, numbers, and/or symbols")) + translationManager.emptyString
     }
 
     ColumnLayout {
         Layout.fillWidth: true
 
-        MoneroComponents.LineEdit {
+        LunexaComponents.LineEdit {
             id: passwordInput
             Layout.fillWidth: true
             KeyNavigation.tab: passwordInputConfirm
@@ -117,10 +117,10 @@ ColumnLayout {
                 id: progressText
                 Layout.topMargin: 6
                 Layout.bottomMargin: 6
-                font.family: MoneroComponents.Style.fontMedium.name
+                font.family: LunexaComponents.Style.fontMedium.name
                 font.pixelSize: 14
                 font.bold: false
-                color: MoneroComponents.Style.defaultFontColor
+                color: LunexaComponents.Style.defaultFontColor
                 height: 18
                 passwordCharacter: "*"
             }
@@ -131,7 +131,7 @@ ColumnLayout {
                 Layout.preferredHeight: 8
 
                 radius: 8
-                color: MoneroComponents.Style.progressBarBackgroundColor
+                color: LunexaComponents.Style.progressBarBackgroundColor
 
                 Rectangle {
                     id: fillRect
@@ -146,7 +146,7 @@ ColumnLayout {
                 }
 
                 Rectangle {
-                    color: MoneroComponents.Style.defaultFontColor
+                    color: LunexaComponents.Style.defaultFontColor
                     anchors.bottom: parent.bottom
                     anchors.left: parent.left
                     anchors.leftMargin: 8
@@ -158,7 +158,7 @@ ColumnLayout {
     ColumnLayout {
         Layout.fillWidth: true
 
-        MoneroComponents.LineEdit {
+        LunexaComponents.LineEdit {
             id: passwordInputConfirm
             property bool firstUserInput: true
             Layout.fillWidth: true
@@ -181,7 +181,7 @@ ColumnLayout {
             Layout.topMargin: 0
             Layout.minimumHeight: passwordInputMessage.height + 3
 
-            MoneroComponents.TextPlain {
+            LunexaComponents.TextPlain {
                 visible: passwordInputMessage.visible
                 font.family: FontAwesome.fontFamilySolid
                 font.styleName: "Solid"
@@ -191,7 +191,7 @@ ColumnLayout {
                 themeTransition: false
             }
 
-            MoneroComponents.TextPlain {
+            LunexaComponents.TextPlain {
                 id: passwordInputMessage
                 property bool passwordsMatch: passwordInputConfirm.text === passwordInput.text
                 property bool partialPasswordsMatch: passwordInputConfirm.text === passwordInput.text.substring(0, passwordInputConfirm.text.length)
@@ -199,8 +199,8 @@ ColumnLayout {
                 Layout.topMargin: 3
                 text: passwordsMatch ? qsTr("Passwords match!") : qsTr("Passwords do not match") + translationManager.emptyString
                 textFormat: Text.PlainText
-                color: passwordsMatch ? (MoneroComponents.Style.blackTheme ? "#00FF00" : "#008000") : "#FF0000"
-                font.family: MoneroComponents.Style.fontRegular.name
+                color: passwordsMatch ? (LunexaComponents.Style.blackTheme ? "#00FF00" : "#008000") : "#FF0000"
+                font.family: LunexaComponents.Style.fontRegular.name
                 font.pixelSize: 14
                 themeTransition: false
             }

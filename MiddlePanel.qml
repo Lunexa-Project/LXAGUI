@@ -33,13 +33,13 @@ import QtQuick.Controls 2.0
 import QtQuick.Controls 1.4
 import QtQuick.Layouts 1.1
 import QtGraphicalEffects 1.0
-import moneroComponents.Wallet 1.0
+import lunexaComponents.Wallet 1.0
 
 import "./pages"
 import "./pages/settings"
 import "./pages/merchant"
-import "./components" as MoneroComponents
-import "./components/effects/" as MoneroEffects
+import "./components" as LunexaComponents
+import "./components/effects/" as LunexaEffects
 
 Rectangle {
     id: root
@@ -72,20 +72,20 @@ Rectangle {
     Rectangle {
         // grey background on merchantView
         visible: currentView === merchantView
-        color: MoneroComponents.Style.moneroGrey
+        color: LunexaComponents.Style.lunexaGrey
         anchors.fill: parent
     }
 
-    MoneroEffects.GradientBackground {
+    LunexaEffects.GradientBackground {
         visible: currentView !== merchantView
         anchors.fill: parent
-        fallBackColor: MoneroComponents.Style.middlePanelBackgroundColor
-        initialStartColor: MoneroComponents.Style.middlePanelBackgroundGradientStart
-        initialStopColor: MoneroComponents.Style.middlePanelBackgroundGradientStop
-        blackColorStart: MoneroComponents.Style._b_middlePanelBackgroundGradientStart
-        blackColorStop: MoneroComponents.Style._b_middlePanelBackgroundGradientStop
-        whiteColorStart: MoneroComponents.Style._w_middlePanelBackgroundGradientStart
-        whiteColorStop: MoneroComponents.Style._w_middlePanelBackgroundGradientStop
+        fallBackColor: LunexaComponents.Style.middlePanelBackgroundColor
+        initialStartColor: LunexaComponents.Style.middlePanelBackgroundGradientStart
+        initialStopColor: LunexaComponents.Style.middlePanelBackgroundGradientStop
+        blackColorStart: LunexaComponents.Style._b_middlePanelBackgroundGradientStart
+        blackColorStop: LunexaComponents.Style._b_middlePanelBackgroundGradientStop
+        whiteColorStart: LunexaComponents.Style._w_middlePanelBackgroundGradientStart
+        whiteColorStop: LunexaComponents.Style._w_middlePanelBackgroundGradientStop
         start: Qt.point(0, 0)
         end: Qt.point(height, width)
     }
@@ -237,12 +237,12 @@ Rectangle {
         anchors.bottom: parent.bottom
         anchors.left: parent.left
         width: 1
-        color: MoneroComponents.Style.appWindowBorderColor
+        color: LunexaComponents.Style.appWindowBorderColor
 
-        MoneroEffects.ColorTransition {
+        LunexaEffects.ColorTransition {
             targetObj: parent
-            blackColor: MoneroComponents.Style._b_appWindowBorderColor
-            whiteColor: MoneroComponents.Style._w_appWindowBorderColor
+            blackColor: LunexaComponents.Style._b_appWindowBorderColor
+            whiteColor: LunexaComponents.Style._w_appWindowBorderColor
         }
     }
 

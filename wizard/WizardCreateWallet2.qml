@@ -30,11 +30,11 @@ import QtQuick 2.9
 import QtQuick.Dialogs 1.2
 import QtQuick.Layouts 1.2
 import QtQuick.Controls 2.0
-import moneroComponents.Clipboard 1.0
+import lunexaComponents.Clipboard 1.0
 
 import "../js/Wizard.js" as Wizard
 import "../js/Utils.js" as Utils
-import "../components" as MoneroComponents
+import "../components" as LunexaComponents
 
 Rectangle {
     id: wizardCreateWallet2
@@ -57,7 +57,7 @@ Rectangle {
             name: "verify";
             when: typeof currentWallet != "undefined" && wizardStateView.state == "wizardCreateWallet2"
             PropertyChanges { target: header; title: qsTr("Verify your recovery phrase") + translationManager.emptyString }
-            PropertyChanges { target: header; imageIcon: wizardController.layoutScale != 4 ? (MoneroComponents.Style.blackTheme ? "qrc:///images/verify.png" : "qrc:///images/verify-white.png") : "" }
+            PropertyChanges { target: header; imageIcon: wizardController.layoutScale != 4 ? (LunexaComponents.Style.blackTheme ? "qrc:///images/verify.png" : "qrc:///images/verify-white.png") : "" }
             PropertyChanges { target: header; subtitle: qsTr("Please confirm that you have written down your recover phrase by filling in the five blank fields with the correct words. If you have not written down your recovery phrase on a piece of paper, click on the Previous button and write it down right now!") + translationManager.emptyString}
             PropertyChanges { target: walletCreationDate; opacity: 0; enabled: false}
             PropertyChanges { target: walletCreationDateValue; opacity: 0; enabled: false}
@@ -80,16 +80,16 @@ Rectangle {
         }
     ]
 
-    MoneroComponents.TextPlain {
+    LunexaComponents.TextPlain {
         //PDF template text
         // the translation of these strings is used to create localized PDF templates
         visible: false
         text: qsTr("Print this paper, fill it out, and keep it in a safe location. Never share your recovery phrase with anybody, especially with strangers offering technical support.") +
               qsTr("Recovery phrase (mnemonic seed)") +
-              qsTr("These words are are a backup of your wallet. They are the only thing needed to access your funds and restore your Monero wallet, so keep this paper in a safe place and do not disclose it to anybody! It is strongly not recommended to store your recovery phrase digitally (in an email, online service, screenshot, photo, or any other type of computer file).") +
+              qsTr("These words are are a backup of your wallet. They are the only thing needed to access your funds and restore your Lunexa wallet, so keep this paper in a safe place and do not disclose it to anybody! It is strongly not recommended to store your recovery phrase digitally (in an email, online service, screenshot, photo, or any other type of computer file).") +
               qsTr("Wallet creation date") +
               qsTr("Wallet restore height") +
-              qsTr("For instructions on how to restore this wallet, visit www.getmonero.org and go to Resources > User Guides > \"How to restore a wallet from mnemonic seed\". Use only Monero wallets that are trusted and recommended by the Monero community (see a list of them in www.getmonero.org/downloads).") + translationManager.emptyString
+              qsTr("For instructions on how to restore this wallet, visit www.getlunexa.org and go to Resources > User Guides > \"How to restore a wallet from mnemonic seed\". Use only Lunexa wallets that are trusted and recommended by the Lunexa community (see a list of them in www.getlunexa.org/downloads).") + translationManager.emptyString
     }
 
     ColumnLayout {
@@ -127,7 +127,7 @@ Rectangle {
                 id: mobileImage
                 Layout.alignment: Qt.AlignHCenter
                 fillMode: Image.PreserveAspectCrop
-                source: MoneroComponents.Style.blackTheme ? "qrc:///images/write-down@2x.png" : "qrc:///images/write-down-white@2x.png"
+                source: LunexaComponents.Style.blackTheme ? "qrc:///images/write-down@2x.png" : "qrc:///images/write-down-white@2x.png"
                 width: 125
                 height: 125
                 sourceSize.width: 125
@@ -142,7 +142,7 @@ Rectangle {
                 Rectangle {
                     width: mobileImage.width
                     height: mobileImage.height
-                    color: mobileImage.focus ? MoneroComponents.Style.titleBarButtonHoverColor : "transparent"
+                    color: mobileImage.focus ? LunexaComponents.Style.titleBarButtonHoverColor : "transparent"
                 }
             }
 
@@ -150,10 +150,10 @@ Rectangle {
                 id: mobileText
                 Layout.fillWidth: true
                 Layout.alignment: Qt.AlignHCenter
-                color: MoneroComponents.Style.dimmedFontColor
+                color: LunexaComponents.Style.dimmedFontColor
                 text: qsTr("The next page will display your recovery phrase, also known as mnemonic seed.") + " " + qsTr("These words are a backup of your wallet. Write these words down now on a piece of paper in the same order displayed. Keep this paper in a safe place and do not disclose it to anybody! Do not store these words digitally, always use a paper!") + translationManager.emptyString
 
-                font.family: MoneroComponents.Style.fontRegular.name
+                font.family: LunexaComponents.Style.fontRegular.name
                 font.pixelSize: 14
                 wrapMode: Text.WordWrap
                 leftPadding: 0
@@ -167,11 +167,11 @@ Rectangle {
 
                 Rectangle {
                     anchors.fill: parent
-                    color: parent.focus ? MoneroComponents.Style.titleBarButtonHoverColor : "transparent"
+                    color: parent.focus ? LunexaComponents.Style.titleBarButtonHoverColor : "transparent"
                 }
             }
 
-            MoneroComponents.StandardButton {
+            LunexaComponents.StandardButton {
                 id: displaySeedButton
                 Layout.alignment: Qt.AlignHCenter;
                 text: qsTr("Display recovery phrase") + translationManager.emptyString
@@ -198,7 +198,7 @@ Rectangle {
 
             WizardHeader {
                 id: header
-                imageIcon: wizardController.layoutScale != 4 ? (MoneroComponents.Style.blackTheme ? "qrc:///images/write-down.png" : "qrc:///images/write-down-white.png") : ""
+                imageIcon: wizardController.layoutScale != 4 ? (LunexaComponents.Style.blackTheme ? "qrc:///images/write-down.png" : "qrc:///images/write-down-white.png") : ""
                 title: qsTr("Write down your recovery phrase") + translationManager.emptyString
                 subtitleVisible: wizardController.layoutScale != 4
                 subtitle: qsTr("These words are a backup of your wallet. Write these words down now on a piece of paper in the same order displayed. Keep this paper in a safe place and do not disclose it to anybody! Do not store these words digitally, always use a paper!") + translationManager.emptyString
@@ -223,14 +223,14 @@ Rectangle {
                 }
             }
 
-            MoneroComponents.TextPlain {
+            LunexaComponents.TextPlain {
                 id: recoveryPhraseLabel
                 visible: wizardController.layoutScale != 4
-                font.family: MoneroComponents.Style.fontRegular.name
+                font.family: LunexaComponents.Style.fontRegular.name
                 font.pixelSize: 15
                 font.bold: false
                 textFormat: Text.RichText
-                color: MoneroComponents.Style.dimmedFontColor
+                color: LunexaComponents.Style.dimmedFontColor
                 text: qsTr("Recovery phrase (mnemonic seed)") + ":" + translationManager.emptyString
                 themeTransition: false
                 tooltip: qsTr("These words encode your private spend key in a human readable format.") + "<br>" + qsTr("It is expected that some words may be repeated.") + translationManager.emptyString
@@ -273,7 +273,7 @@ Rectangle {
                     }
                 }
 
-                MoneroComponents.StandardButton {
+                LunexaComponents.StandardButton {
                     id: createNewSeedButton
                     visible: appWindow.walletMode >= 2
                     small: true
@@ -294,7 +294,7 @@ Rectangle {
                     KeyNavigation.tab: copyToClipboardButton
                 }
 
-                MoneroComponents.StandardButton {
+                LunexaComponents.StandardButton {
                     id: copyToClipboardButton
                     visible: appWindow.walletMode >= 2
                     small: true
@@ -312,7 +312,7 @@ Rectangle {
                     KeyNavigation.tab: printPDFTemplate.visible ? printPDFTemplate : walletCreationDate
                 }
 
-                MoneroComponents.StandardButton {
+                LunexaComponents.StandardButton {
                     id: printPDFTemplate
                     small: true
                     primary: false
@@ -340,13 +340,13 @@ Rectangle {
                     spacing: 5
                     Layout.fillWidth: true
 
-                    MoneroComponents.TextPlain {
+                    LunexaComponents.TextPlain {
                         id: walletCreationDate
-                        font.family: MoneroComponents.Style.fontRegular.name
+                        font.family: LunexaComponents.Style.fontRegular.name
                         font.pixelSize: 15
                         font.bold: false
                         textFormat: Text.RichText
-                        color: MoneroComponents.Style.dimmedFontColor
+                        color: LunexaComponents.Style.dimmedFontColor
                         text: qsTr("Creation date") + ": " + translationManager.emptyString
                         themeTransition: false
                         Accessible.role: Accessible.StaticText
@@ -357,15 +357,15 @@ Rectangle {
                         KeyNavigation.tab: walletRestoreHeight
                     }
 
-                    MoneroComponents.TextPlain {
+                    LunexaComponents.TextPlain {
                         id: walletCreationDateValue
                         property var locale: Qt.locale()
                         property date currentDate: new Date()
-                        font.family: MoneroComponents.Style.fontRegular.name
+                        font.family: LunexaComponents.Style.fontRegular.name
                         font.pixelSize: 16
                         font.bold: true
                         textFormat: Text.RichText
-                        color: MoneroComponents.Style.defaultFontColor
+                        color: LunexaComponents.Style.defaultFontColor
                         text: currentDate.toLocaleDateString(locale, Locale.ShortFormat)
                     }
                 }
@@ -374,13 +374,13 @@ Rectangle {
                     spacing: 5
                     Layout.fillWidth: true
 
-                    MoneroComponents.TextPlain {
+                    LunexaComponents.TextPlain {
                         id: walletRestoreHeight
-                        font.family: MoneroComponents.Style.fontRegular.name
+                        font.family: LunexaComponents.Style.fontRegular.name
                         font.pixelSize: 15
                         font.bold: false
                         textFormat: Text.RichText
-                        color: MoneroComponents.Style.dimmedFontColor
+                        color: LunexaComponents.Style.dimmedFontColor
                         text: qsTr("Restore height") + ":" + translationManager.emptyString
                         tooltip: wizardController.layoutScale != 4 ? qsTr("Enter this number when restoring the wallet to make your initial wallet synchronization faster.") : "" + translationManager.emptyString
                         tooltipIconVisible: true
@@ -393,13 +393,13 @@ Rectangle {
                         Keys.onTabPressed: navigation.btnPrev.forceActiveFocus();
                     }
 
-                    MoneroComponents.TextPlain {
+                    LunexaComponents.TextPlain {
                         id: walletRestoreHeightValue
-                        font.family: MoneroComponents.Style.fontRegular.name
+                        font.family: LunexaComponents.Style.fontRegular.name
                         font.pixelSize: 16
                         font.bold: true
                         textFormat: Text.RichText
-                        color: MoneroComponents.Style.defaultFontColor
+                        color: LunexaComponents.Style.defaultFontColor
                         text: Utils.roundDownToNearestThousand(wizardController.m_wallet ? wizardController.m_wallet.walletCreationHeight : 0)
                     }
                 }

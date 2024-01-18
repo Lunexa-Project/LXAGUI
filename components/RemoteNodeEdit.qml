@@ -32,7 +32,7 @@ import QtQuick 2.9
 import QtQuick.Layouts 1.1
 
 import "../js/Utils.js" as Utils
-import "../components" as MoneroComponents
+import "../components" as LunexaComponents
 
 GridLayout {
     columns: 2
@@ -48,15 +48,15 @@ GridLayout {
 
     // TODO: LEGACY; remove these placeHolder variables when
     // the wizards get redesigned to the black-theme
-    property string placeholderFontFamily: MoneroComponents.Style.fontRegular.name
+    property string placeholderFontFamily: LunexaComponents.Style.fontRegular.name
     property bool placeholderFontBold: false
     property int placeholderFontSize: 15
-    property string placeholderColor: MoneroComponents.Style.defaultFontColor
+    property string placeholderColor: LunexaComponents.Style.defaultFontColor
     property real placeholderOpacity: 0.35
     property int labelFontSize: 14
 
     property string lineEditBackgroundColor: "transparent"
-    property string lineEditFontColor: MoneroComponents.Style.defaultFontColor
+    property string lineEditFontColor: LunexaComponents.Style.defaultFontColor
     property bool lineEditFontBold: false
     property int lineEditFontSize: 15
 
@@ -82,7 +82,7 @@ GridLayout {
         return addr + ":" + port;
     }
 
-    MoneroComponents.LineEdit {
+    LunexaComponents.LineEdit {
         id: daemonAddr
         Layout.preferredWidth: root.width/3
         placeholderText: qsTr("Remote Node Hostname / IP") + translationManager.emptyString
@@ -104,7 +104,7 @@ GridLayout {
         text: initialHostPort[1]
     }
 
-    MoneroComponents.LineEdit {
+    LunexaComponents.LineEdit {
         id: daemonPort
         Layout.preferredWidth: root.width/3
         placeholderText: qsTr("Port") + translationManager.emptyString

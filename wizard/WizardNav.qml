@@ -1,4 +1,4 @@
-// Copyright (c) 2014-2019, The Monero Project
+// Copyright (c) 2014-2019, The Lunexa Project
 // 
 // All rights reserved.
 // 
@@ -31,7 +31,7 @@ import QtQuick.Layouts 1.2
 import QtQuick.Controls 2.0
 
 import "../js/Wizard.js" as Wizard
-import "../components" as MoneroComponents
+import "../components" as LunexaComponents
 
 RowLayout {
     id: menuNav
@@ -69,7 +69,7 @@ RowLayout {
         Layout.preferredHeight: parent.height
         color: "transparent"
 
-        MoneroComponents.StandardButton {
+        LunexaComponents.StandardButton {
             id: btnPrev
             width: appWindow.width <= 506 ? 45 : appWindow.width <= 660 ? 120 : 180
             small: true
@@ -115,7 +115,7 @@ RowLayout {
                 implicitHeight: 10
                 radius: 10
                 // @TODO: Qt 5.10+ replace === with <=
-                color: index === menuNav.progress ? MoneroComponents.Style.defaultFontColor : MoneroComponents.Style.progressBarBackgroundColor
+                color: index === menuNav.progress ? LunexaComponents.Style.defaultFontColor : LunexaComponents.Style.progressBarBackgroundColor
             }
             Accessible.role: Accessible.Indicator
             Accessible.name: qsTr("Step (%1) of (%2)").arg(currentIndex + 1).arg(count) + translationManager.emptyString
@@ -126,7 +126,7 @@ RowLayout {
 
             Rectangle {
                 anchors.fill: parent
-                color: wizardProgress.focus ? MoneroComponents.Style.titleBarButtonHoverColor : "transparent"
+                color: wizardProgress.focus ? LunexaComponents.Style.titleBarButtonHoverColor : "transparent"
             }
         }
     }
@@ -135,7 +135,7 @@ RowLayout {
         Layout.preferredHeight: parent.height
         color: "transparent"
 
-        MoneroComponents.StandardButton {
+        LunexaComponents.StandardButton {
             id: btnNext
             width: appWindow.width <= 506 ? 45 : appWindow.width <= 660 ? 120 : 180
             small: true

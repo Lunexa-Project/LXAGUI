@@ -31,8 +31,8 @@ import QtQuick.Layouts 1.2
 import QtQuick.Controls 2.0
 
 import "../components"
-import "../components" as MoneroComponents
-import "../components/effects/" as MoneroEffects
+import "../components" as LunexaComponents
+import "../components/effects/" as LunexaEffects
 import "../version.js" as Version
 
 Rectangle {
@@ -62,10 +62,10 @@ Rectangle {
             opacity: 0
             Layout.preferredWidth: parent.width / 1.3
             Layout.alignment: Qt.AlignCenter
-            color: MoneroComponents.Style.defaultFontColor
+            color: LunexaComponents.Style.defaultFontColor
             text: "Welcome - Wilkommen - Bonvenon - Bienvenido - Bienvenue - Välkommen - Selamat datang - Benvenuto - 歡迎 - Welkom - Bem Vindo - добро пожаловать"
 
-            font.family: MoneroComponents.Style.fontRegular.name
+            font.family: LunexaComponents.Style.fontRegular.name
             font.bold: true
             font.pixelSize: 18
             horizontalAlignment: TextInput.AlignHCenter
@@ -152,9 +152,9 @@ Rectangle {
             Layout.fillWidth: true
             columnSpacing: 20
 
-            MoneroComponents.LanguageButton { }
+            LunexaComponents.LanguageButton { }
 
-            MoneroComponents.StandardButton {
+            LunexaComponents.StandardButton {
                 id: btnContinue
                 Layout.minimumWidth: 150
                 text: qsTr("Continue") + translationManager.emptyString
@@ -177,14 +177,14 @@ Rectangle {
             }
         }
 
-        MoneroComponents.TextPlain {
+        LunexaComponents.TextPlain {
             id: versionText
             opacity: 0
             Layout.alignment: Qt.AlignCenter
             font.bold: true
             font.pixelSize: 12
-            font.family: MoneroComponents.Style.fontRegular.name
-            color: MoneroComponents.Style.defaultFontColor
+            font.family: LunexaComponents.Style.fontRegular.name
+            color: LunexaComponents.Style.defaultFontColor
             text: Version.GUI_VERSION + " (Qt " + qtRuntimeVersion + ")"
 
             Behavior on opacity {

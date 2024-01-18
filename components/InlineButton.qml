@@ -32,14 +32,14 @@ import QtGraphicalEffects 1.0
 
 import FontAwesome 1.0
 
-import "." as MoneroComponents
-import "./effects/" as MoneroEffects
+import "." as LunexaComponents
+import "./effects/" as LunexaEffects
 
 Item {
     id: inlineButton
 
     property bool small: false
-    property string textColor: MoneroComponents.Style.inlineButtonTextColor
+    property string textColor: LunexaComponents.Style.inlineButtonTextColor
     property alias text: inlineText.text
     property alias fontPixelSize: inlineText.font.pixelSize
     property alias fontFamily: inlineText.font.family
@@ -64,13 +64,13 @@ Item {
     Rectangle{
         id: rect
         anchors.fill: parent
-        color: buttonArea.containsMouse ? MoneroComponents.Style.buttonInlineBackgroundColorHover : MoneroComponents.Style.buttonInlineBackgroundColor
+        color: buttonArea.containsMouse ? LunexaComponents.Style.buttonInlineBackgroundColorHover : LunexaComponents.Style.buttonInlineBackgroundColor
         radius: 4
         border.width: parent.focus && parent.enabled ? 1 : 0
 
-        MoneroComponents.TextPlain {
+        LunexaComponents.TextPlain {
             id: inlineText
-            font.family: MoneroComponents.Style.fontBold.name
+            font.family: LunexaComponents.Style.fontBold.name
             font.bold: true
             font.pixelSize: inlineButton.isFontAwesomeIcon ? 22 : inlineButton.small ? 14 : 16
             color: inlineButton.textColor
@@ -78,14 +78,14 @@ Item {
             anchors.horizontalCenter: parent.horizontalCenter
             themeTransition: false
 
-            MoneroEffects.ColorTransition {
+            LunexaEffects.ColorTransition {
                 targetObj: inlineText
-                blackColor: MoneroComponents.Style._b_inlineButtonTextColor
-                whiteColor: MoneroComponents.Style._w_inlineButtonTextColor
+                blackColor: LunexaComponents.Style._b_inlineButtonTextColor
+                whiteColor: LunexaComponents.Style._w_inlineButtonTextColor
             }
         }
 
-        MoneroComponents.Tooltip {
+        LunexaComponents.Tooltip {
             id: tooltip
             anchors.fill: parent
         }
@@ -109,7 +109,7 @@ Item {
     }
 
     DropShadow {
-        visible: !MoneroComponents.Style.blackTheme
+        visible: !LunexaComponents.Style.blackTheme
         anchors.fill: rect
         horizontalOffset: 2
         verticalOffset: 2

@@ -29,7 +29,7 @@
 import QtQuick 2.9
 import QtQuick.Layouts 1.1
 
-import "../components" as MoneroComponents
+import "../components" as LunexaComponents
 
 ColumnLayout {
     id: item
@@ -50,33 +50,33 @@ ColumnLayout {
     property int inputRadius: 4
 
     property bool placeholderCenter: false
-    property string placeholderFontFamily: MoneroComponents.Style.fontRegular.name
+    property string placeholderFontFamily: LunexaComponents.Style.fontRegular.name
     property bool placeholderFontBold: false
     property int placeholderFontSize: 18
-    property string placeholderColor: MoneroComponents.Style.defaultFontColor
+    property string placeholderColor: LunexaComponents.Style.defaultFontColor
     property real placeholderOpacity: 0.35
 
     property bool borderDisabled: false
     property string borderColor: {
         if(input.error && input.text !== ""){
-            return MoneroComponents.Style.inputBorderColorInvalid;
+            return LunexaComponents.Style.inputBorderColorInvalid;
         } else if(input.activeFocus){
-            return MoneroComponents.Style.inputBorderColorActive;
+            return LunexaComponents.Style.inputBorderColorActive;
         } else {
-            return MoneroComponents.Style.inputBorderColorInActive;
+            return LunexaComponents.Style.inputBorderColorInActive;
         }
     }
 
     property alias error: input.error
     property alias cursorPosition: input.cursorPosition
 
-    property string labelFontColor: MoneroComponents.Style.defaultFontColor
+    property string labelFontColor: LunexaComponents.Style.defaultFontColor
     property bool labelFontBold: false
     property int labelFontSize: 16
     property bool labelButtonVisible: false
 
-    property string fontColor: MoneroComponents.Style.defaultFontColor
-    property string fontFamily: MoneroComponents.Style.fontRegular.name
+    property string fontColor: LunexaComponents.Style.defaultFontColor
+    property string fontFamily: LunexaComponents.Style.fontRegular.name
     property bool fontBold: false
     property int fontSize: 16
 
@@ -105,11 +105,11 @@ ColumnLayout {
         height: (inputLabel.height + 10)
         visible: showingHeader ? true : false
 
-        MoneroComponents.TextPlain {
+        LunexaComponents.TextPlain {
             id: inputLabel
             anchors.top: parent.top
             anchors.left: parent.left
-            font.family: MoneroComponents.Style.fontRegular.name
+            font.family: LunexaComponents.Style.fontRegular.name
             font.pixelSize: item.labelFontSize
             font.bold: labelFontBold
             textFormat: Text.RichText
@@ -127,13 +127,13 @@ ColumnLayout {
             anchors.right: parent.right
             spacing: 16
 
-            MoneroComponents.LabelButton {
+            LunexaComponents.LabelButton {
                 id: labelButton
                 onClicked: labelButtonClicked()
                 visible: labelButtonVisible
             }
 
-            MoneroComponents.LabelButton {
+            LunexaComponents.LabelButton {
                 id: copyButtonId
                 visible: copyButton && input.text !== ""
                 text: qsTr("Copy") + translationManager.emptyString
@@ -146,7 +146,7 @@ ColumnLayout {
                 }
             }
 
-            MoneroComponents.LabelButton {
+            LunexaComponents.LabelButton {
                 id: pasteButtonId
                 onClicked: {
                     input.clear();
@@ -158,7 +158,7 @@ ColumnLayout {
         }
     }
 
-    MoneroComponents.InputMulti {
+    LunexaComponents.InputMulti {
         id: input
         readOnly: false
         addressValidation: false
@@ -182,7 +182,7 @@ ColumnLayout {
         Keys.onReturnPressed: item.returnPressed()
         Keys.onEnterPressed: item.enterPressed()
 
-        MoneroComponents.TextPlain {
+        LunexaComponents.TextPlain {
             id: placeholderLabel
             visible: input.text ? false : true
             anchors.verticalCenter: parent.verticalCenter
