@@ -99,19 +99,19 @@ if(APPLE OR (WIN32 AND NOT STATIC))
         )
         if(CMAKE_BUILD_TYPE STREQUAL "Debug")
             list(APPEND WIN_DEPLOY_DLLS
-                libicudtd73.dll
-                libicuind73.dll
-                libicuiod73.dll
-                libicutud73.dll
-                libicuucd73.dll
+                libicudtd74.dll
+                libicuind74.dll
+                libicuiod74.dll
+                libicutud74.dll
+                libicuucd74.dll
             )
         else() # assume release
             list(APPEND WIN_DEPLOY_DLLS
-                libicudt73.dll
-                libicuin73.dll
-                libicuio73.dll
-                libicutu73.dll
-                libicuuc73.dll
+                libicudt74.dll
+                libicuin74.dll
+                libicuio74.dll
+                libicutu74.dll
+                libicuuc74.dll
             )
         endif()
         list(TRANSFORM WIN_DEPLOY_DLLS PREPEND "$ENV{MSYSTEM_PREFIX}/bin/")
