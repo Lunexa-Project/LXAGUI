@@ -75,7 +75,7 @@ ListView {
                         anchors.verticalCenter: parent.verticalCenter
                         font.pixelSize: 13
                         font.bold: false
-                        color: "#707070"
+                        color: "#444444"
                         text: time_date + " (" + Utils.ago(time_epoch) + ") "
                         selectionColor: LunexaComponents.Style.textSelectionColor
                         selectByMouse: true
@@ -99,7 +99,7 @@ ListView {
                             readOnly: true
                             font.pixelSize: 12
                             font.bold: false
-                            color: "#707070"
+                            color: "#444444"
                             text: (hide_amount ? "(" + qsTr("show") + ")" : "(" + qsTr("hide") + ")") + translationManager.emptyString
                         }
 
@@ -124,7 +124,7 @@ ListView {
                         anchors.verticalCenter: parent.verticalCenter
                         font.pixelSize: 14
                         font.bold: true
-                        color: hide_amount ? "#707070" : "#009F1E"
+                        color: hide_amount ? "#444444" : "#009F1E"
                         text: hide_amount ? '-' : '+' + amount + (in_txpool ? ' (%1)'.arg(qsTr('unconfirmed')) : '') 
                         selectionColor: LunexaComponents.Style.textSelectionColor
                         selectByMouse: true
