@@ -367,7 +367,7 @@ Rectangle {
                 }
 
                 LunexaComponents.InlineButton {
-                    buttonColor: LunexaComponents.Style.orange
+                    buttonColor: LunexaComponents.Style.purple
                     fontFamily: FontAwesome.fontFamily
                     text: FontAwesome.qrcode
                     visible : appWindow.qrScannerEnabled && !addressLine.text

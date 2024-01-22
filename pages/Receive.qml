@@ -181,7 +181,7 @@ Rectangle {
                 verticalAlignment: Text.AlignVCenter
                 visible: paymentRequestGridLayout.visible
                 font.pixelSize: 12
-                color: qrCodeTextMouseArea.containsMouse ? LunexaComponents.Style.orange : LunexaComponents.Style.defaultFontColor
+                color: qrCodeTextMouseArea.containsMouse ? LunexaComponents.Style.purple : LunexaComponents.Style.defaultFontColor
                 text: generateQRCodeString();
                 wrapMode: Text.WrapAnywhere
                 tooltip: qsTr("Copy payment request to clipboard") + translationManager.emptyString
@@ -441,7 +441,7 @@ Rectangle {
                 font.family: LunexaComponents.Style.fontRegular.name
                 font.pixelSize: 17
                 textFormat: Text.RichText
-                color: selectedAddressDrescriptionMouseArea.containsMouse ? LunexaComponents.Style.orange : LunexaComponents.Style.dimmedFontColor
+                color: selectedAddressDrescriptionMouseArea.containsMouse ? LunexaComponents.Style.purple : LunexaComponents.Style.dimmedFontColor
                 themeTransition: false
                 tooltip: subaddressListView.currentIndex > 0 ? qsTr("Edit address label") : "" + translationManager.emptyString
                 MouseArea {
@@ -468,7 +468,7 @@ Rectangle {
                 horizontalAlignment: TextInput.AlignHCenter
                 wrapMode: Text.Wrap
                 textFormat: Text.RichText
-                color: selectedAddressMouseArea.containsMouse ? LunexaComponents.Style.orange : LunexaComponents.Style.defaultFontColor
+                color: selectedAddressMouseArea.containsMouse ? LunexaComponents.Style.purple : LunexaComponents.Style.defaultFontColor
                 font.pixelSize: 15
                 font.family: LunexaComponents.Style.fontRegular.name
                 themeTransition: false

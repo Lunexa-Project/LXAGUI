@@ -494,7 +494,7 @@ Rectangle {
                             anchors.fill: parent
                             hoverEnabled: pages > 1
                             cursorShape: hoverEnabled ? Qt.PointingHandCursor : Qt.ArrowCursor
-                            onEntered: parent.color = LunexaComponents.Style.orange
+                            onEntered: parent.color = LunexaComponents.Style.purple
                             onExited: parent.color = LunexaComponents.Style.defaultFontColor
                             onClicked: {
                                 if(pages === 1)
@@ -695,7 +695,7 @@ Rectangle {
                                         state: "copyable"
                                         anchors.fill: parent
                                         hoverEnabled: true
-                                        onEntered: parent.color = LunexaComponents.Style.orange
+                                        onEntered: parent.color = LunexaComponents.Style.purple
                                         onExited: parent.color = LunexaComponents.Style.defaultFontColor
                                     }
                                 }
@@ -750,7 +750,7 @@ Rectangle {
                                         state: "copyable"
                                         anchors.fill: parent
                                         hoverEnabled: true
-                                        onEntered: parent.color = LunexaComponents.Style.orange
+                                        onEntered: parent.color = LunexaComponents.Style.purple
                                         onExited: parent.color = LunexaComponents.Style.defaultFontColor
                                     }
                                 }
@@ -834,7 +834,7 @@ Rectangle {
                                         state: isout ? "copyable_address" : "copyable_receiving_address"
                                         anchors.fill: parent
                                         hoverEnabled: true
-                                        onEntered: parent.color = LunexaComponents.Style.orange
+                                        onEntered: parent.color = LunexaComponents.Style.purple
                                         onExited: parent.color = LunexaComponents.Style.defaultFontColor
                                     }
                                 }
@@ -885,7 +885,7 @@ Rectangle {
                                         state: "copyable"
                                         anchors.fill: parent
                                         hoverEnabled: true
-                                        onEntered: parent.color = LunexaComponents.Style.orange
+                                        onEntered: parent.color = LunexaComponents.Style.purple
                                         onExited: parent.color = LunexaComponents.Style.defaultFontColor
                                     }
                                 }
@@ -944,7 +944,7 @@ Rectangle {
                                         anchors.fill: parent
                                         hoverEnabled: true
                                         onEntered: {
-                                            parent.color = LunexaComponents.Style.orange
+                                            parent.color = LunexaComponents.Style.purple
                                             if (persistentSettings.historyHumanDates) {
                                                 parent.text = dateTime;
                                             }
@@ -1082,7 +1082,7 @@ Rectangle {
                                     state: "copyable"
                                     anchors.fill: parent
                                     hoverEnabled: true
-                                    onEntered: parent.color = LunexaComponents.Style.orange
+                                    onEntered: parent.color = LunexaComponents.Style.purple
                                     onExited: parent.color = LunexaComponents.Style.defaultFontColor
                                 }
                             }
@@ -1149,7 +1149,7 @@ Rectangle {
                                     state: "copyable"
                                     anchors.fill: parent
                                     hoverEnabled: true
-                                    onEntered: parent.color = LunexaComponents.Style.orange
+                                    onEntered: parent.color = LunexaComponents.Style.purple
                                     onExited: parent.color = LunexaComponents.Style.defaultFontColor
                                 }
                             }
@@ -1194,7 +1194,7 @@ Rectangle {
                                     state: "copyable_txkey"
                                     anchors.fill: parent
                                     hoverEnabled: true
-                                    onEntered: parent.color = LunexaComponents.Style.orange
+                                    onEntered: parent.color = LunexaComponents.Style.purple
                                     onExited: parent.color = LunexaComponents.Style.defaultFontColor
                                 }
                             }
@@ -1239,7 +1239,7 @@ Rectangle {
                                     state: "copyable"
                                     anchors.fill: parent
                                     hoverEnabled: true
-                                    onEntered: parent.color = LunexaComponents.Style.orange
+                                    onEntered: parent.color = LunexaComponents.Style.purple
                                     onExited: parent.color = LunexaComponents.Style.defaultFontColor
                                 }
                             }

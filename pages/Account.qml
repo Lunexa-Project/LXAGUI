@@ -112,7 +112,7 @@ Rectangle {
                         hoverEnabled: true
                         anchors.fill: parent
                         cursorShape: Qt.PointingHandCursor
-                        onEntered: parent.color = LunexaComponents.Style.orange
+                        onEntered: parent.color = LunexaComponents.Style.purple
                         onExited: parent.color = LunexaComponents.Style.defaultFontColor
                         onClicked: {
                             console.log("Copied to clipboard");
@@ -147,7 +147,7 @@ Rectangle {
                         hoverEnabled: true
                         anchors.fill: parent
                         cursorShape: Qt.PointingHandCursor
-                        onEntered: parent.color = LunexaComponents.Style.orange
+                        onEntered: parent.color = LunexaComponents.Style.purple
                         onExited: parent.color = LunexaComponents.Style.defaultFontColor
                         onClicked: {
                             console.log("Copied to clipboard");

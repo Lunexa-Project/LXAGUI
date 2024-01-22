@@ -258,7 +258,7 @@ Rectangle {
                     color: LunexaComponents.Style.blackTheme ? "white" : "black"
                     Binding on color {
                         when: balancePart1MouseArea.containsMouse || balancePart2MouseArea.containsMouse
-                        value: LunexaComponents.Style.orange
+                        value: LunexaComponents.Style.purple
                     }
                     text: {
                         if (persistentSettings.fiatPriceEnabled && persistentSettings.fiatPriceToggle) {

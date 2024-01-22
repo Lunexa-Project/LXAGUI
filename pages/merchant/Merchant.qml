@@ -408,7 +408,7 @@ Item {
                             hoverEnabled: true
                             cursorShape: Qt.PointingHandCursor
                             onEntered: {
-                                parent.color = LunexaComponents.Style.orange
+                                parent.color = LunexaComponents.Style.purple
                             }
                             onExited: {
                                 parent.color = parent._color

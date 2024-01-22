@@ -1942,7 +1942,7 @@ ApplicationWindow {
         }
 
         LunexaMerchant.MerchantTitlebar {
-            id: titleBarOrange
+            id: titleBarpurple
             visible: persistentSettings.customDecorations && middlePanel.state === "Merchant"
             anchors.left: parent.left
             anchors.right: parent.right

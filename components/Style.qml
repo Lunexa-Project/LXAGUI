@@ -15,11 +15,11 @@ QtObject {
     property QtObject fontMonoRegular: FontLoader { id: _fontMonoRegular; source: "qrc:/fonts/RobotoMono-Regular.ttf"; }
 
     property string grey: "#404040"
-    property string orange: "#FF6C3C"
+    property string purple: "#DBC1FF"
     property string white: "#FFFFFF"
     property string green: "#2EB358"
     property string lunexaGrey: "#4C4C4C"
-    property string warningColor: "orange"
+    property string warningColor: "purple"
 
     property string defaultFontColor: blackTheme ? _b_defaultFontColor : _w_defaultFontColor
     property string dimmedFontColor: blackTheme ? _b_dimmedFontColor : _w_dimmedFontColor
@@ -92,7 +92,7 @@ QtObject {
 
     property string _b_inputBoxBackground: "black"
     property string _b_inputBoxBackgroundDisabled: Qt.rgba(255, 255, 255, 0.10)
-    property string _b_inputBoxBackgroundError: "#FFDDDD"
+    property string _b_inputBoxBackgroundError: "#E7D6FF"
     property string _b_inputBoxColor: "white"
     property string _b_legacy_placeholderFontColor: "#BABABA"
     property string _b_inputBorderColorActive: Qt.rgba(255, 255, 255, 0.38)
@@ -154,7 +154,7 @@ QtObject {
 
     property string _w_inputBoxBackground: "white"
     property string _w_inputBoxBackgroundDisabled: Qt.rgba(0, 0, 0, 0.20)
-    property string _w_inputBoxBackgroundError: "#FFDDDD"
+    property string _w_inputBoxBackgroundError: "#E7D6FF"
     property string _w_inputBoxColor: "black"
     property string _w_legacy_placeholderFontColor: "#BABABA"
     property string _w_inputBorderColorActive: Qt.rgba(0, 0, 0, 0.30)
