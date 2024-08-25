@@ -34,3 +34,10 @@ Session.vim
 tags
 # Persistent undo
 [._]*.un~
+.github/qt_helper.py
+.github/verify_p2pool.py
+.github/workflows/build.yml
+.github/workflows/flatpak.yml
+.github/workflows/verify_p2pool.yml
+.vscode/settings.json
+.vscode/settings.json
