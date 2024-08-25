@@ -79,7 +79,7 @@ Rectangle {
 
         return "";
     }
-    property string startLinkText: "<style type='text/css'>a {text-decoration: none; color: #FF6C3C; font-size: 14px;}</style><a href='#'>(%1)</a>".arg(qsTr("Start daemon")) + translationManager.emptyString
+    property string startLinkText: "<style type='text/css'>a {text-decoration: none; color: #DBC1FF; font-size: 14px;}</style><a href='#'>(%1)</a>".arg(qsTr("Start daemon")) + translationManager.emptyString
     property bool warningLongPidDescription: descriptionLine.text.match(/^[0-9a-f]{64}$/i)
 
     Clipboard { id: clipboard }
@@ -892,7 +892,7 @@ Rectangle {
             tooltip: {
                 var header = qsTr("Required for cold wallets to sign their corresponding key images") + translationManager.emptyString;
                 return "<style type='text/css'>.header{ font-size: 13px; } p{line-height:20px; margin-top:0px; margin-bottom:0px; " +
-                       ";} p.purple{color:#ff9323;}</style>" +
+                       ";} p.purple{color:#ae9bcc;}</style>" +
                        "<div class='header'>" + header + "</div>" +
                        "<p>" + qsTr("1. Using view-only wallet, export the outputs into a file") + "</p>" +
                        "<p>" + qsTr("2. Using cold wallet, import the outputs file") + "</p>" +
@@ -922,7 +922,7 @@ Rectangle {
                 }
                 var header = qsTr("Required for view-only wallets to display the real balance") + translationManager.emptyString;
                 return "<style type='text/css'>.header{ font-size: 13px; } p{line-height:20px; margin-top:0px; margin-bottom:0px; " +
-                       ";} p.purple{color:#ff9323;}</style>" +
+                       ";} p.purple{color:#ae9bcc;}</style>" +
                        "<div class='header'>" + header + "</div>" +
                        "<p>" + qsTr("1. Using cold wallet, export the key images into a file") + "</p>" +
                        "<p>" + qsTr("2. Using view-only wallet, import the key images file") + "</p>" +
@@ -961,7 +961,7 @@ Rectangle {
                 }
                 var header = qsTr("Spend LXA from a cold (offline) wallet") + translationManager.emptyString;
                 return "<style type='text/css'>.header{ font-size: 13px; } p{line-height:20px; margin-top:0px; margin-bottom:0px; " +
-                       ";} p.purple{color:#ff9323;}</style>" +
+                       ";} p.purple{color:#ae9bcc;}</style>" +
                        "<div class='header'>" + header + "</div>" +
                        "<p>" + qsTr("1. Using view-only wallet, export the outputs into a file") + "</p>" +
                        "<p>" + qsTr("2. Using cold wallet, import the outputs file and export the key images") + "</p>" +

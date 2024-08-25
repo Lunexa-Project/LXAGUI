@@ -84,17 +84,17 @@ QtObject {
     property var accountColors: blackTheme ? _b_accountColors : _w_accountColors
 
     property string _b_defaultFontColor: "white"
-    property string _b_dimmedFontColor: "#BBBBBB"
+    property string _b_dimmedFontColor: "#AF9BCC"
     property string _b_lightGreyFontColor: "#DFDFDF"
     property string _b_errorColor: "#DBC1FF"
-    property string _b_textSelectionColor: "#BBBBBB"
+    property string _b_textSelectionColor: "#AF9BCC"
     property string _b_textSelectedColor: "white"
 
     property string _b_inputBoxBackground: "black"
     property string _b_inputBoxBackgroundDisabled: Qt.rgba(255, 255, 255, 0.10)
     property string _b_inputBoxBackgroundError: "#E7D6FF"
     property string _b_inputBoxColor: "white"
-    property string _b_legacy_placeholderFontColor: "#BABABA"
+    property string _b_legacy_placeholderFontColor: "#AF9BCC"
     property string _b_inputBorderColorActive: Qt.rgba(255, 255, 255, 0.38)
     property string _b_inputBorderColorInActive: Qt.rgba(255, 255, 255, 0.32)
     property string _b_inputBorderColorInvalid: Qt.rgba(255, 0, 0, 0.40)
@@ -115,7 +115,7 @@ QtObject {
 
     property string _b_titleBarBackgroundGradientStart: "#262626";
     property string _b_titleBarBackgroundGradientStop: "#191919"
-    property string _b_titleBarBackgroundBorderColor: "#2f2f2f"
+    property string _b_titleBarBackgroundBorderColor: "#303030"
     property string _b_titleBarLogoSource: "qrc:///images/titlebarLogo.png"
     property string _b_titleBarMinimizeSource: "qrc:///images/minimize.svg"
     property string _b_titleBarFullscreenSource: "qrc:///images/fullscreen.svg"
@@ -139,11 +139,11 @@ QtObject {
     property string _b_appWindowBackgroundColor: "white"
     property string _b_appWindowBorderColor: "#313131"
     property bool _b_progressBarProgressTextBold: true
-    property string _b_progressBarBackgroundColor: "#24FFFFFF"
+    property string _b_progressBarBackgroundColor: "#AF9BCC"
     property string _b_leftPanelBackgroundGradientStart: "#222222"
     property string _b_leftPanelBackgroundGradientStop: "#1a1a1a"
-    property string _b_historyHeaderTextColor: "#C0C0C0"
-    property var _b_accountColors: ["#6E513C", "#842129", "#458421", "#742184", "#291DBE", "#846F21", "#217F84", "#696969"]
+    property string _b_historyHeaderTextColor: "#AF9BCC"
+    property var _b_accountColors: ["#685D7A", "#842129", "#458421", "#742184", "#291DBE", "#846F21", "#217F84", "#696969"]
 
     property string _w_defaultFontColor: "black"
     property string _w_dimmedFontColor: "#3f3f3f"
@@ -205,5 +205,5 @@ QtObject {
     property string _w_leftPanelBackgroundGradientStart: "white"
     property string _w_leftPanelBackgroundGradientStop: "#f5f5f5"
     property string _w_historyHeaderTextColor: "#515151"
-    property var _w_accountColors: ["#6E513C", "#6E513C", "#842129", "#458421", "#742184", "#291DBE", "#846F21", "#217F84", "#696969"]
+    property var _w_accountColors: ["#685D7A", "#685D7A", "#842129", "#458421", "#742184", "#291DBE", "#846F21", "#217F84", "#696969"]
 }

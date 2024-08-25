@@ -75,7 +75,7 @@ Rectangle {
         menuColumn.previousButton.checked = true
     }
 
-    width: 300
+    width: 350
     color: "transparent"
     anchors.bottom: parent.bottom
     anchors.top: parent.top
@@ -130,7 +130,7 @@ Rectangle {
                     verticalOffset: 3
                     radius: 10.0
                     samples: 15
-                    color: "#3B000000"
+                    color: "#E4D1FF"
                     source: card
                     cached: true
                 }
@@ -145,7 +145,7 @@ Rectangle {
                     anchors.leftMargin: 192
                     font.bold: true
                     font.pixelSize: 12
-                    color: "#f33434"
+                    color: "#E4D1FF"
                     themeTransition: false
                 }
 
@@ -159,7 +159,7 @@ Rectangle {
                     anchors.rightMargin: 8
                     font.pixelSize: 12
                     font.bold: true
-                    color: "#ff9323"
+                    color: "#E4D1FF"
                     themeTransition: false
                 }
             }

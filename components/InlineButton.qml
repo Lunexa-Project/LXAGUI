@@ -115,7 +115,7 @@ Item {
         verticalOffset: 2
         radius: 7.0
         samples: 10
-        color: "#1B000000"
+        color: "#4C4C4C"
         cached: true
         source: rect
     }

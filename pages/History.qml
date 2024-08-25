@@ -619,7 +619,7 @@ Rectangle {
                         width: 10
                         height: 10
                         radius: 8
-                        color: isout ? "#d85a00" : "#2eb358"
+                        color: isout ? "#dbc1ff" : "#2eb358"
                     }
 
                     LunexaComponents.TextPlain {

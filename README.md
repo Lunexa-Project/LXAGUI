@@ -21,7 +21,7 @@ Copyright (c) 2014-2022, The Lunexa Project
 
 ## Development resources
 
-- Web: [getlunexa.org](https://lunexa.co)
+- Web: [lunexa.co](https://lunexa.co)
 - Github: [https://github.com/lunexa-project/lxagui](https://github.com/lunexa-project/lxagui)
 
 ## Vulnerability response
