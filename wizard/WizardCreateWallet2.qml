@@ -89,7 +89,7 @@ Rectangle {
               qsTr("These words are are a backup of your wallet. They are the only thing needed to access your funds and restore your Lunexa wallet, so keep this paper in a safe place and do not disclose it to anybody! It is strongly not recommended to store your recovery phrase digitally (in an email, online service, screenshot, photo, or any other type of computer file).") +
               qsTr("Wallet creation date") +
               qsTr("Wallet restore height") +
-              qsTr("For instructions on how to restore this wallet, visit www.getlunexa.org and go to Resources > User Guides > \"How to restore a wallet from mnemonic seed\". Use only Lunexa wallets that are trusted and recommended by the Lunexa community (see a list of them in www.getlunexa.org/downloads).") + translationManager.emptyString
+              qsTr("For instructions on how to restore this wallet, visit lunexa.co and go to Resources > User Guides > \"How to restore a wallet from mnemonic seed\". Use only Lunexa wallets that are trusted and recommended by the Lunexa community (see a list of them in lunexa.co/downloads).") + translationManager.emptyString
     }
 
     ColumnLayout {
